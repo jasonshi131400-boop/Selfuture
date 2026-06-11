@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CST 客服SOP培训知识库 | 加密货币交易所客服标准操作参考</title>
+<meta name="description" content="加密货币交易所客服标准操作参考，涵盖知识库、流程中心、话术模板与跨部门协作规范。面向零基础新人，专业全面。">
+<meta name="keywords" content="加密货币,交易所,客服,SOP,培训,知识库,KYC,充提币,合规,话术">
+<meta property="og:title" content="CST 客服SOP培训知识库">
+<meta property="og:description" content="加密货币交易所客服标准操作参考 · 知识库 · 流程中心 · 话术模板 · 协作规范">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+<style>
+/* ========== Reset & Base ========== */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:#f8f9fc;color:#1a1a2e;font-size:14px;line-height:1.6;overflow:hidden;height:100vh}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit;font-size:inherit}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:#c5c8d0;border-radius:3px}
+::-webkit-scrollbar-track{background:transparent}
+
+/* ========== Layout ========== */
+.app{display:flex;height:100vh}
+.sidebar{width:260px;background:#1a1a2e;color:#fff;display:flex;flex-direction:column;flex-shrink:0;overflow:hidden}
+.sidebar-scroll{flex:1;overflow-y:auto;padding-bottom:20px}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{height:56px;background:#fff;border-bottom:1px solid #e8eaef;display:flex;align-items:center;padding:0 28px;flex-shrink:0}
+.content{flex:1;overflow-y:auto;padding:28px}
+
+/* ========== Sidebar ========== */
+.sidebar-logo{padding:20px 20px 8px;display:flex;align-items:center;gap:10px}
+.sidebar-logo .logo-icon{width:36px;height:36px;background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700}
+.sidebar-logo .logo-text{font-size:15px;font-weight:600;letter-spacing:0.3px}
+.sidebar-logo .logo-sub{font-size:11px;color:#8b8fa3;margin-top:1px}
+
+.sidebar-search{margin:12px 16px;position:relative}
+.sidebar-search input{width:100%;padding:8px 12px 8px 34px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-size:13px;outline:none;transition:all .2s}
+.sidebar-search input::placeholder{color:#6b7280}
+.sidebar-search input:focus{background:rgba(255,255,255,0.12);border-color:rgba(79,70,229,0.5)}
+.sidebar-search .search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#6b7280;font-size:14px}
+
+.nav-group{margin-bottom:4px}
+.nav-group-title{padding:8px 20px 4px;font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.nav-group-title:hover{color:#9ca3af}
+.nav-group-title .arrow{transition:transform .2s;font-size:10px}
+.nav-group.collapsed .arrow{transform:rotate(-90deg)}
+.nav-group.collapsed .nav-items{display:none}
+
+.nav-items .nav-item{display:flex;align-items:center;gap:10px;padding:7px 20px;color:#9ca3af;font-size:13px;cursor:pointer;transition:all .15s;border-left:3px solid transparent;margin:1px 0}
+.nav-items .nav-item:hover{background:rgba(255,255,255,0.05);color:#d1d5db}
+.nav-items .nav-item.active{background:rgba(79,70,229,0.15);color:#a5b4fc;border-left-color:#4f46e5}
+.nav-items .nav-item .icon{width:18px;text-align:center;font-size:14px}
+.nav-items .nav-item.sub{padding-left:48px;font-size:12.5px}
+
+
+/* ========== Topbar ========== */
+.breadcrumb{font-size:13px;color:#6b7280;display:flex;align-items:center;gap:6px}
+.breadcrumb .sep{color:#d1d5db}
+.breadcrumb .current{color:#1a1a2e;font-weight:500}
+
+/* ========== View Container ========== */
+.view{display:none}
+.view.active{display:block}
+
+/* ========== Dashboard ========== */
+.welcome{margin-bottom:24px}
+.welcome h1{font-size:22px;font-weight:600;margin-bottom:4px}
+.welcome p{color:#6b7280;font-size:14px}
+.welcome .quick-actions{display:flex;gap:10px;margin-top:14px}
+.welcome .quick-actions button{padding:7px 18px;border-radius:8px;font-size:13px;font-weight:500;transition:all .2s}
+.btn-primary{background:#4f46e5;color:#fff}
+.btn-primary:hover{background:#4338ca}
+.btn-outline{border:1px solid #d1d5db;color:#4f46e5;background:#fff}
+.btn-outline:hover{background:#eef2ff}
+
+.stat-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
+.stat-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef}
+.stat-card .label{font-size:13px;color:#6b7280;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.stat-card .value{font-size:28px;font-weight:700;color:#1a1a2e}
+.stat-card .sub{font-size:12px;color:#9ca3af;margin-top:4px}
+
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.quick-card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:14px}
+.quick-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08);border-color:#4f46e5}
+.quick-card .qc-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.quick-card .qc-info h4{font-size:14px;font-weight:500;margin-bottom:2px}
+.quick-card .qc-info .tag{font-size:11px;color:#4f46e5;background:#eef2ff;padding:2px 8px;border-radius:4px;display:inline-block}
+.quick-card .qc-arrow{margin-left:auto;color:#9ca3af;font-size:16px}
+
+.section-title{font-size:16px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+.section-title .more{font-size:13px;color:#4f46e5;font-weight:400;cursor:pointer}
+
+.announce-list{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;margin-bottom:28px}
+.announce-item{padding:10px 0;border-bottom:1px solid #f1f3f5;display:flex;align-items:center;gap:10px;cursor:pointer;transition:background .15s}
+.announce-item:last-child{border-bottom:none}
+.announce-item:hover{background:#f8f9fc;margin:0 -16px;padding:10px 16px;border-radius:6px}
+.announce-item .badge{font-size:11px;padding:2px 6px;border-radius:4px;flex-shrink:0}
+.badge-urgent{background:#fef2f2;color:#dc2626}
+.badge-new{background:#eef2ff;color:#4f46e5}
+.badge-normal{background:#f3f4f6;color:#6b7280}
+.badge-required{background:#fef2f2;color:#dc2626}
+.badge-core{background:#eef2ff;color:#4f46e5}
+.badge-comp{background:#fef3c7;color:#d97706}
+.announce-item .title{flex:1;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.announce-item .date{font-size:12px;color:#9ca3af;flex-shrink:0}
+
+.recommend-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.recommend-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;cursor:pointer;transition:all .2s}
+.recommend-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.recommend-card .rc-cover{height:6px}
+.recommend-card .rc-body{padding:16px}
+.recommend-card .rc-body h4{font-size:14px;font-weight:500;margin-bottom:6px}
+.recommend-card .rc-body .meta{display:flex;align-items:center;gap:8px;font-size:12px;color:#6b7280;margin-bottom:10px}
+.recommend-card .rc-body .meta .tag{background:#eef2ff;color:#4f46e5;padding:2px 8px;border-radius:4px}
+.recommend-card .rc-body button{padding:5px 14px;background:#4f46e5;color:#fff;border-radius:6px;font-size:12px}
+
+/* ========== Knowledge Base Pages ========== */
+.page-header{margin-bottom:24px}
+.page-header h1{font-size:22px;font-weight:600;margin-bottom:6px}
+.page-header .meta{display:flex;align-items:center;gap:12px;font-size:13px;color:#6b7280}
+.page-header .meta .badge{font-size:11px;padding:3px 8px;border-radius:4px;font-weight:500}
+
+.chapter-layout{display:flex;gap:24px}
+.chapter-nav{width:240px;flex-shrink:0;background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;position:sticky;top:0;max-height:calc(100vh - 140px);overflow-y:auto}
+.chapter-nav .cn-title{font-size:14px;font-weight:600;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #e8eaef}
+.chapter-nav .ch-group{margin-bottom:8px}
+.chapter-nav .ch-group-title{font-size:12px;font-weight:600;color:#4f46e5;padding:6px 8px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;border-radius:6px}
+.chapter-nav .ch-group-title:hover{background:#f8f9fc}
+.chapter-nav .ch-group-title .arrow{font-size:10px;transition:transform .2s}
+.chapter-nav .ch-group.collapsed .arrow{transform:rotate(-90deg)}
+.chapter-nav .ch-group.collapsed .ch-items{display:none}
+.chapter-nav .ch-item{font-size:12.5px;color:#6b7280;padding:5px 8px 5px 24px;cursor:pointer;border-radius:4px;transition:all .15s}
+.chapter-nav .ch-item:hover{color:#4f46e5;background:#eef2ff}
+.chapter-nav .ch-item.active{color:#4f46e5;font-weight:500;background:#eef2ff}
+
+.chapter-content{flex:1;min-width:0}
+.chapter-content .content-block{background:#fff;border-radius:12px;padding:24px 28px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;margin-bottom:16px}
+.chapter-content h2{font-size:18px;font-weight:600;margin-bottom:12px;color:#1a1a2e}
+.chapter-content h3{font-size:15px;font-weight:600;margin:16px 0 8px;color:#374151}
+.chapter-content p{color:#4b5563;margin-bottom:10px;line-height:1.7}
+.chapter-content ul{padding-left:20px;color:#4b5563;margin-bottom:10px}
+.chapter-content ul li{margin-bottom:4px}
+
+.key-card{background:linear-gradient(135deg,#eef2ff,#faf5ff);border:1px solid #c7d2fe;border-radius:10px;padding:16px;margin:14px 0}
+.key-card .kc-title{font-size:13px;font-weight:600;color:#4f46e5;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.key-card ul{margin:0;padding-left:18px;color:#4338ca;font-size:13px}
+.key-card ul li{margin-bottom:3px}
+
+.callout{border-radius:8px;padding:12px 16px;margin:14px 0;font-size:13px;display:flex;align-items:flex-start;gap:10px}
+.callout-tip{background:#eff6ff;border-left:3px solid #3b82f6;color:#1e40af}
+.callout-warn{background:#fffbeb;border-left:3px solid #f59e0b;color:#92400e}
+.callout-danger{background:#fef2f2;border-left:3px solid #ef4444;color:#991b1b}
+
+.chapter-nav-bottom{display:flex;justify-content:space-between;margin-top:20px}
+.chapter-nav-bottom button{padding:8px 20px;border-radius:8px;font-size:13px;font-weight:500}
+.btn-learn{background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:500}
+.btn-learn:hover{background:#059669}
+.btn-learn.done{background:#d1fae5;color:#065f46}
+
+/* ========== Flow Pages ========== */
+.flow-tabs{display:flex;gap:4px;margin-bottom:20px;background:#fff;border-radius:10px;padding:4px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef}
+.flow-tab{padding:8px 20px;border-radius:8px;font-size:13px;color:#6b7280;cursor:pointer;transition:all .2s;font-weight:500}
+.flow-tab:hover{color:#4f46e5}
+.flow-tab.active{background:#4f46e5;color:#fff}
+
+.flow-diagram{background:#fff;border-radius:12px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;margin-bottom:20px}
+.flow-diagram h3{font-size:15px;font-weight:600;margin-bottom:16px}
+.flow-steps{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.flow-step{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:10px 16px;border-radius:8px;font-size:12.5px;font-weight:500;white-space:nowrap}
+.flow-arrow{color:#9ca3af;font-size:16px}
+
+.step-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px}
+.step-card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;border-left:4px solid #10b981}
+.step-card.warn{border-left-color:#f59e0b}
+.step-card.danger{border-left-color:#ef4444}
+.step-card .sc-num{font-size:11px;color:#9ca3af;margin-bottom:4px}
+.step-card .sc-title{font-size:13px;font-weight:600;margin-bottom:6px}
+.step-card .sc-desc{font-size:12.5px;color:#6b7280}
+.step-card .sc-tip{font-size:12px;color:#f59e0b;margin-top:6px;display:flex;align-items:center;gap:4px}
+
+.exception-table{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;margin-bottom:20px}
+.exception-table h3{padding:16px 20px;font-size:15px;font-weight:600;border-bottom:1px solid #e8eaef}
+.exc-table{width:100%;border-collapse:collapse;font-size:13px}
+.exc-table th{background:#f8f9fc;padding:10px 16px;text-align:left;font-weight:500;color:#6b7280;border-bottom:1px solid #e8eaef}
+.exc-table td{padding:10px 16px;border-bottom:1px solid #f1f3f5;color:#374151}
+.exc-table tr:hover td{background:#f8f9fc}
+.exc-table .tag-sm{font-size:11px;padding:2px 6px;border-radius:3px;display:inline-block;margin-right:4px}
+.tag-red{background:#fef2f2;color:#dc2626}
+.tag-yellow{background:#fefce8;color:#ca8a04}
+.tag-green{background:#f0fdf4;color:#16a34a}
+.tag-blue{background:#eff6ff;color:#2563eb}
+
+.sla-card{background:linear-gradient(135deg,#1a1a2e,#2d2b55);color:#fff;border-radius:12px;padding:20px;margin-bottom:20px}
+.sla-card h3{font-size:15px;font-weight:600;margin-bottom:12px}
+.sla-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.sla-item{background:rgba(255,255,255,0.08);border-radius:8px;padding:10px 14px}
+.sla-item .si-label{font-size:12px;color:#a5b4fc;margin-bottom:2px}
+.sla-item .si-value{font-size:14px;font-weight:600}
+
+/* ========== Script Pages ========== */
+.script-search{display:flex;gap:10px;margin-bottom:16px}
+.script-search input{flex:1;padding:9px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:13px;outline:none;transition:border .2s}
+.script-search input:focus{border-color:#4f46e5}
+.script-search select{padding:9px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:13px;outline:none;background:#fff}
+
+.script-list{display:flex;flex-direction:column;gap:10px}
+.script-card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;cursor:pointer;transition:all .2s}
+.script-card:hover{border-color:#4f46e5;box-shadow:0 2px 8px rgba(79,70,229,0.1)}
+.script-card .sc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.script-card .sc-header h4{font-size:14px;font-weight:500}
+.script-card .sc-header .tags{display:flex;gap:4px}
+.script-card .sc-preview{font-size:12.5px;color:#6b7280;line-height:1.5}
+.script-card .sc-actions{display:flex;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid #f1f3f5}
+.script-card .sc-actions button{padding:4px 12px;border-radius:6px;font-size:12px;transition:all .15s}
+.btn-copy{background:#eef2ff;color:#4f46e5}
+.btn-copy:hover{background:#4f46e5;color:#fff}
+.btn-fav{background:#fefce8;color:#ca8a04}
+.btn-fav:hover{background:#ca8a04;color:#fff}
+.btn-expand{background:#f3f4f6;color:#374151}
+.btn-expand:hover{background:#374151;color:#fff}
+
+.script-detail{background:#fff;border-radius:10px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;margin-top:10px;display:none}
+.script-detail.show{display:block}
+.script-detail .sd-scenario{font-size:13px;color:#6b7280;margin-bottom:12px;padding:8px 12px;background:#f8f9fc;border-radius:6px}
+.script-detail .sd-script{background:#1a1a2e;color:#e5e7eb;border-radius:8px;padding:16px;font-family:'Menlo','Consolas',monospace;font-size:12.5px;line-height:1.8;white-space:pre-wrap;margin-bottom:12px;position:relative}
+.script-detail .sd-script .copy-btn{position:absolute;top:8px;right:8px;padding:4px 10px;background:rgba(255,255,255,0.1);color:#9ca3af;border-radius:4px;font-size:11px;cursor:pointer}
+.script-detail .sd-script .copy-btn:hover{background:rgba(255,255,255,0.2);color:#fff}
+.script-detail .sd-notes{display:flex;flex-direction:column;gap:6px}
+.script-detail .sd-notes .note{font-size:12.5px;padding:6px 10px;border-radius:4px;display:flex;align-items:center;gap:6px}
+.note-danger{background:#fef2f2;color:#991b1b;border-left:3px solid #ef4444}
+.note-warn{background:#fffbeb;color:#92400e;border-left:3px solid #f59e0b}
+
+/* ========== Cross-department Page ========== */
+.dept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.dept-card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;cursor:pointer;transition:all .2s;text-align:center}
+.dept-card:hover{border-color:#4f46e5;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.dept-card .dc-icon{font-size:28px;margin-bottom:8px}
+.dept-card .dc-name{font-size:14px;font-weight:600;margin-bottom:4px}
+.dept-card .dc-desc{font-size:12px;color:#6b7280}
+
+.dept-detail{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;margin-bottom:16px;overflow:hidden;display:none}
+.dept-detail.show{display:block}
+.dept-detail .dd-header{padding:16px 20px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;display:flex;align-items:center;gap:12px}
+.dept-detail .dd-header .dd-icon{font-size:24px}
+.dept-detail .dd-header .dd-title{font-size:16px;font-weight:600}
+.dept-detail .dd-body{padding:20px}
+.dept-detail .dd-section{margin-bottom:16px}
+.dept-detail .dd-section h4{font-size:13px;font-weight:600;color:#4f46e5;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.dept-detail .dd-section p,.dept-detail .dd-section ul{font-size:13px;color:#4b5563}
+.dept-detail .dd-section ul{padding-left:18px}
+.dept-detail .dd-section ul li{margin-bottom:3px}
+.dd-contact{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dd-contact-item{background:#f8f9fc;padding:8px 12px;border-radius:6px;font-size:12px}
+.dd-contact-item .label{color:#6b7280;margin-bottom:2px}
+.dd-contact-item .value{font-weight:500;color:#1a1a2e}
+
+/* ========== Assessment Page ========== */
+.assess-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.assess-card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;text-align:center}
+.assess-card .ac-label{font-size:13px;color:#6b7280;margin-bottom:6px}
+.assess-card .ac-value{font-size:24px;font-weight:700}
+.assess-card .ac-sub{font-size:12px;color:#9ca3af;margin-top:2px}
+
+.test-table{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;margin-bottom:20px}
+.test-table h3{padding:16px 20px;font-size:15px;font-weight:600;border-bottom:1px solid #e8eaef}
+.t-table{width:100%;border-collapse:collapse;font-size:13px}
+.t-table th{background:#f8f9fc;padding:10px 16px;text-align:left;font-weight:500;color:#6b7280;border-bottom:1px solid #e8eaef}
+.t-table td{padding:10px 16px;border-bottom:1px solid #f1f3f5;color:#374151}
+.t-table tr:hover td{background:#f8f9fc}
+.status-pass{color:#10b981;font-weight:500}
+.status-pending{color:#f59e0b;font-weight:500}
+.status-locked{color:#9ca3af}
+.btn-start{background:#4f46e5;color:#fff;padding:5px 14px;border-radius:6px;font-size:12px;cursor:pointer}
+.btn-start:hover{background:#4338ca}
+.btn-start:disabled{background:#d1d5db;cursor:not-allowed}
+
+.sim-chat{display:flex;gap:20px;height:500px}
+.chat-window{flex:1;background:#fff;border-radius:12px;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;overflow:hidden}
+.chat-header{padding:12px 16px;background:#4f46e5;color:#fff;font-weight:500;font-size:13px;display:flex;align-items:center;gap:8px}
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.chat-msg{max-width:80%;padding:10px 14px;border-radius:10px;font-size:13px;line-height:1.5}
+.chat-msg.customer{background:#f1f3f5;color:#1a1a2e;align-self:flex-start;border-bottom-left-radius:2px}
+.chat-msg.agent{background:#4f46e5;color:#fff;align-self:flex-end;border-bottom-right-radius:2px}
+.chat-input{padding:12px;border-top:1px solid #e8eaef;display:flex;gap:8px}
+.chat-input input{flex:1;padding:8px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:13px;outline:none}
+.chat-input input:focus{border-color:#4f46e5}
+.chat-input button{padding:8px 16px;background:#4f46e5;color:#fff;border-radius:8px;font-size:13px}
+
+.eval-panel{width:280px;background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;padding:16px;overflow-y:auto}
+.eval-panel h4{font-size:14px;font-weight:600;margin-bottom:12px}
+.eval-item{margin-bottom:12px}
+.eval-item .ei-label{font-size:12px;color:#6b7280;margin-bottom:4px;display:flex;justify-content:space-between}
+.eval-item .ei-bar{height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden}
+.eval-item .ei-fill{height:100%;border-radius:3px;transition:width .5s}
+.ei-fill-green{background:#10b981}
+.ei-fill-blue{background:#4f46e5}
+.ei-fill-yellow{background:#f59e0b}
+.ei-fill-red{background:#ef4444}
+
+/* ========== QC Page ========== */
+.qc-dims{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
+.qc-dim{background:#fff;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;text-align:center}
+.qc-dim .qd-name{font-size:13px;font-weight:600;margin-bottom:4px}
+.qc-dim .qd-weight{font-size:22px;font-weight:700;color:#4f46e5}
+.qc-dim .qd-desc{font-size:11px;color:#6b7280;margin-top:2px}
+
+.deduction-table{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;margin-bottom:20px}
+.deduction-table h3{padding:16px 20px;font-size:15px;font-weight:600;border-bottom:1px solid #e8eaef}
+
+.grade-bar{display:flex;gap:4px;margin-bottom:24px}
+.grade-item{flex:1;text-align:center;padding:12px;border-radius:8px;font-size:13px;font-weight:600}
+.grade-a{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}
+.grade-b{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe}
+.grade-c{background:#fefce8;color:#ca8a04;border:1px solid #fef08a}
+.grade-d{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+
+.trend-chart{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.04);border:1px solid #e8eaef;margin-bottom:20px}
+.trend-chart h3{font-size:15px;font-weight:600;margin-bottom:16px}
+.chart-placeholder{height:200px;background:linear-gradient(180deg,#eef2ff 0%,#fff 100%);border-radius:8px;display:flex;align-items:flex-end;padding:20px;gap:12px}
+.chart-bar{flex:1;background:linear-gradient(180deg,#4f46e5,#7c3aed);border-radius:4px 4px 0 0;transition:height .5s;min-height:20px}
+
+@media(max-width:1200px){
+  .stat-cards{grid-template-columns:repeat(2,1fr)}
+  .quick-grid{grid-template-columns:repeat(2,1fr)}
+  .recommend-cards{grid-template-columns:repeat(2,1fr)}
+  .dept-grid{grid-template-columns:repeat(2,1fr)}
+  .qc-dims{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<!-- ========== Sidebar ========== -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">CST</div>
+    <div><div class="logo-text">CST</div><div class="logo-sub">客服知识库</div></div>
+  </div>
+  <div class="sidebar-search">
+    <span class="search-icon">🔍</span>
+    <input type="text" placeholder="搜索知识、流程、话术...">
+  </div>
+  <div class="sidebar-scroll">
+    <div class="nav-group"><div class="nav-items"><div class="nav-item active" data-view="dashboard"><span class="icon">🏠</span>首页</div></div></div>
+    <div class="nav-group"><div class="nav-group-title" onclick="toggleGroup(this)">📚 知识库 <span class="arrow">▼</span></div><div class="nav-items"><div class="nav-item sub" data-view="kb-crypto">加密货币基础知识</div><div class="nav-item sub" data-view="kb-exchange">交易所业务知识</div><div class="nav-item sub" data-view="kb-compliance">合规与安全知识</div></div></div>
+    <div class="nav-group"><div class="nav-group-title" onclick="toggleGroup(this)">🔄 流程中心 <span class="arrow">▼</span></div><div class="nav-items"><div class="nav-item sub" data-view="flow-deposit">充提币流程</div><div class="nav-item sub" data-view="flow-kyc">KYC审核流程</div><div class="nav-item sub" data-view="flow-complaint">投诉与升级流程</div><div class="nav-item sub" data-view="flow-exception">异常处理流程</div></div></div>
+    <div class="nav-group"><div class="nav-group-title" onclick="toggleGroup(this)">💬 话术模板 <span class="arrow">▼</span></div><div class="nav-items"><div class="nav-item sub" data-view="script-faq">常见问题话术库</div><div class="nav-item sub" data-view="script-emotion">情绪与危机话术</div></div></div>
+    <div class="nav-group"><div class="nav-items"><div class="nav-item" data-view="cross-dept"><span class="icon">🤝</span>跨部门沟通协作</div></div></div>
+  </div>
+  <div style="padding:16px 20px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;color:#6b7280;line-height:1.5">
+    <div style="margin-bottom:4px;color:#8b8fa3">🔗 分享方式</div>
+    <div>本页为单文件HTML，可直接转发文件，或部署至 GitHub Pages / Netlify 生成在线链接</div>
+  </div>
+</aside>
+
+<div class="main">
+<div class="topbar">
+  <div class="breadcrumb" id="breadcrumb"><span>首页</span></div>
+</div>
+<div class="content" id="content-area">
+
+<!-- ===== Dashboard ===== -->
+<div class="view active" id="view-dashboard">
+  <div class="welcome">
+    <h1>CST 客服知识库</h1>
+    <p>加密货币交易所客服标准操作参考 · 涵盖知识、流程、话术与协作规范</p>
+  </div>
+  <div class="stat-cards">
+    <div class="stat-card"><div class="label">📚 知识库</div><div class="value">3</div><div class="sub">加密货币 / 交易所业务 / 合规安全</div></div>
+    <div class="stat-card"><div class="label">🔄 流程中心</div><div class="value">4</div><div class="sub">充提币 / KYC / 投诉升级 / 异常处理</div></div>
+    <div class="stat-card"><div class="label">💬 话术模板</div><div class="value">2</div><div class="sub">常见问题 / 情绪危机</div></div>
+    <div class="stat-card"><div class="label">🤝 协作规范</div><div class="value">1</div><div class="sub">跨部门沟通协作</div></div>
+  </div>
+  <div class="section-title">快速导航</div>
+  <div class="quick-grid">
+    <div class="quick-card" onclick="navigateTo('kb-crypto')"><div class="qc-icon" style="background:#eef2ff">📖</div><div class="qc-info"><h4>加密货币基础知识</h4><span class="tag">知识库</span></div><span class="qc-arrow">→</span></div>
+    <div class="quick-card" onclick="navigateTo('kb-exchange')"><div class="qc-icon" style="background:#fef3c7">📊</div><div class="qc-info"><h4>交易所业务知识</h4><span class="tag">知识库</span></div><span class="qc-arrow">→</span></div>
+    <div class="quick-card" onclick="navigateTo('kb-compliance')"><div class="qc-icon" style="background:#fce7f3">🛡️</div><div class="qc-info"><h4>合规与安全知识</h4><span class="tag">知识库</span></div><span class="qc-arrow">→</span></div>
+    <div class="quick-card" onclick="navigateTo('flow-deposit')"><div class="qc-icon" style="background:#ecfdf5">🔄</div><div class="qc-info"><h4>充提币操作流程</h4><span class="tag">流程</span></div><span class="qc-arrow">→</span></div>
+    <div class="quick-card" onclick="navigateTo('flow-kyc')"><div class="qc-icon" style="background:#f0fdf4">🪪</div><div class="qc-info"><h4>KYC审核流程</h4><span class="tag">流程</span></div><span class="qc-arrow">→</span></div>
+    <div class="quick-card" onclick="navigateTo('flow-complaint')"><div class="qc-icon" style="background:#fefce8">📣</div><div class="qc-info"><h4>投诉与升级流程</h4><span class="tag">流程</span></div><span class="qc-arrow">→</span></div>
+    <div class="quick-card" onclick="navigateTo('flow-exception')"><div class="qc-icon" style="background:#fef2f2">⚡</div><div class="qc-info"><h4>异常处理流程</h4><span class="tag">流程</span></div><span class="qc-arrow">→</span></div>
+    <div class="quick-card" onclick="navigateTo('script-faq')"><div class="qc-icon" style="background:#eef2ff">💬</div><div class="qc-info"><h4>常见问题话术库</h4><span class="tag">话术</span></div><span class="qc-arrow">→</span></div>
+    <div class="quick-card" onclick="navigateTo('script-emotion')"><div class="qc-icon" style="background:#fef3c7">🆘</div><div class="qc-info"><h4>情绪与危机话术</h4><span class="tag">话术</span></div><span class="qc-arrow">→</span></div>
+  </div>
+  <div class="section-title">最新更新 <span class="more" style="cursor:pointer">查看全部 →</span></div>
+  <div class="announce-list">
+    <div class="announce-item"><span class="badge badge-urgent">⚠️ 重要</span><span class="title">关于USDT-TRC20提币手续费调整的通知</span><span class="date">2026-06-10</span></div>
+    <div class="announce-item"><span class="badge badge-new">📢 更新</span><span class="title">新增SIM卡换绑异常处理流程</span><span class="date">2026-06-08</span></div>
+    <div class="announce-item"><span class="badge badge-normal">🔔 更新</span><span class="title">合规知识库更新：FATF最新旅行规则解读</span><span class="date">2026-06-05</span></div>
+    <div class="announce-item"><span class="badge badge-normal">🔔 更新</span><span class="title">异常处理流程新增：API故障与行情异常场景</span><span class="date">2026-06-03</span></div>
+  </div>
+  <div class="section-title">热门内容</div>
+  <div class="recommend-cards">
+    <div class="recommend-card"><div class="rc-cover" style="background:linear-gradient(90deg,#4f46e5,#7c3aed)"></div><div class="rc-body"><h4>什么是DeFi？概念与风险解读</h4><div class="meta"><span class="tag">知识库</span><span>加密货币基础</span></div><button onclick="navigateTo('kb-crypto')">查看详情</button></div></div>
+    <div class="recommend-card"><div class="rc-cover" style="background:linear-gradient(90deg,#f59e0b,#ef4444)"></div><div class="rc-body"><h4>处理客户恐慌性提币的标准化话术</h4><div class="meta"><span class="tag">话术模板</span><span>情绪危机</span></div><button onclick="navigateTo('script-emotion')">查看详情</button></div></div>
+    <div class="recommend-card"><div class="rc-cover" style="background:linear-gradient(90deg,#10b981,#06b6d4)"></div><div class="rc-body"><h4>异常价格波动应急SOP</h4><div class="meta"><span class="tag">流程中心</span><span>异常处理</span></div><button onclick="navigateTo('flow-exception')">查看详情</button></div></div>
+  </div>
+
+  <!-- 关于本知识库 -->
+  <div style="margin-top:32px;padding:24px;background:#fff;border-radius:12px;border:1px solid #e8eaef">
+    <div style="font-size:15px;font-weight:600;color:#1a1a2e;margin-bottom:12px">📋 关于本知识库</div>
+    <div style="font-size:13px;color:#6b7280;line-height:1.8">
+      <p><strong>用途：</strong>本知识库为加密货币交易所客服团队的标准操作参考手册，涵盖加密货币基础知识、交易所业务知识、合规与安全、充提币/KYC/投诉/异常处理全流程、话术模板及跨部门协作规范。</p>
+      <p style="margin-top:8px"><strong>使用方式：</strong>左侧导航可快速切换模块，支持浏览器内搜索（Ctrl+F）。本文件为单文件HTML，无需联网即可使用。</p>
+      <p style="margin-top:8px"><strong>分享方式：</strong></p>
+      <ul style="padding-left:20px;margin-top:4px">
+        <li>直接转发本HTML文件，对方双击即可在浏览器中打开</li>
+        <li>上传至 GitHub Pages，获得在线访问链接，方便团队统一访问</li>
+        <li>拖拽至 Netlify Drop（app.netlify.com/drop），10秒生成在线链接</li>
+      </ul>
+      <p style="margin-top:12px;font-size:12px;color:#9ca3af">版本 2026.06 · 内容仅供内部培训参考</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KB: Crypto Basics ===== -->
+<div class="view" id="view-kb-crypto">
+  <div class="page-header">
+    <h1>加密货币基础知识</h1>
+    
+  </div>
+  <div class="chapter-layout">
+    <div class="chapter-nav">
+      <div class="cn-title">📖 章节目录</div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第1章 区块链基础 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item active" onclick="selectChapter(this)">1.1 什么是区块链</div><div class="ch-item" onclick="selectChapter(this)">1.2 共识机制</div><div class="ch-item" onclick="selectChapter(this)">1.3 公链 vs 联盟链</div><div class="ch-item" onclick="selectChapter(this)">1.4 区块确认与不可篡改</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第2章 主流加密货币 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">2.1 BTC — 数字黄金</div><div class="ch-item" onclick="selectChapter(this)">2.2 ETH — 智能合约</div><div class="ch-item" onclick="selectChapter(this)">2.3 USDT/USDC — 稳定币</div><div class="ch-item" onclick="selectChapter(this)">2.4 主流山寨币分类</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第3章 钱包与地址 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">3.1 公钥、私钥、助记词</div><div class="ch-item" onclick="selectChapter(this)">3.2 热钱包 vs 冷钱包</div><div class="ch-item" onclick="selectChapter(this)">3.3 多签钱包与托管钱包</div><div class="ch-item" onclick="selectChapter(this)">3.4 常见链上地址格式</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第4章 链上交易基础 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">4.1 Gas费与矿工费</div><div class="ch-item" onclick="selectChapter(this)">4.2 交易确认数</div><div class="ch-item" onclick="selectChapter(this)">4.3 交易哈希（TxHash）</div><div class="ch-item" onclick="selectChapter(this)">4.4 链上查询工具</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第5章 常见链与网络 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">5.1 Bitcoin网络</div><div class="ch-item" onclick="selectChapter(this)">5.2 Ethereum及ERC-20</div><div class="ch-item" onclick="selectChapter(this)">5.3 Tron及TRC-20</div><div class="ch-item" onclick="selectChapter(this)">5.4 BSC/Solana等</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第6章 DeFi与新兴概念 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">6.1 DEX原理</div><div class="ch-item" onclick="selectChapter(this)">6.2 流动性挖矿与质押</div><div class="ch-item" onclick="selectChapter(this)">6.3 跨链桥</div><div class="ch-item" onclick="selectChapter(this)">6.4 NFT与数字资产</div></div></div>
+    </div>
+    <div class="chapter-content">
+
+      <!-- 1.1 什么是区块链 -->
+      <div class="content-block">
+        <h2>1.1 什么是区块链</h2>
+        <p>区块链（Blockchain）是一种去中心化的分布式账本技术。它将交易记录按时间顺序打包成"区块"，并通过密码学方法将区块首尾相连形成"链"，确保数据不可篡改、可追溯。</p>
+        <h3>核心特征</h3>
+        <ul>
+          <li><strong>去中心化</strong>：没有单一控制节点，数据由全网节点共同维护</li>
+          <li><strong>不可篡改</strong>：一旦数据写入区块链，几乎无法修改</li>
+          <li><strong>透明可追溯</strong>：所有交易记录公开可查</li>
+          <li><strong>共识机制</strong>：网络参与者通过算法达成一致，无需信任第三方</li>
+        </ul>
+        <div class="key-card"><div class="kc-title">💡 核心要点</div><ul><li>区块链 ≠ 加密货币，区块链是底层技术，加密货币是其应用之一</li><li>"去中心化"不等于"匿名"，大多数公链的交易是公开可查的</li><li>区块大小有限（BTC约1MB），所以链上处理速度有限</li></ul></div>
+        <div class="callout callout-warn">⚠️ 客户常混淆"区块链"和"加密货币"的概念。解释时先说"区块链是底层技术，像互联网；加密货币是跑在上面的应用，像电子邮件"。</div>
+        <div class="callout callout-danger">🔴 绝对不能向客户说"区块链绝对安全"。应该说"区块链技术本身具有很强的安全性，但使用方式（如私钥保管）仍需用户自行负责"。</div>
+      </div>
+
+      <!-- 1.2 共识机制 -->
+      <div class="content-block">
+        <h2>1.2 共识机制</h2>
+        <p>共识机制是区块链网络中各节点达成一致的算法规则。没有中心化服务器的情况下，如何确保所有人认可的账本内容一致？这就是共识机制要解决的核心问题。</p>
+        <h3>主流共识机制对比</h3>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>机制</th><th>原理</th><th>代表链</th><th>优点</th><th>缺点</th></tr></thead>
+            <tbody>
+              <tr><td><strong>PoW</strong> 工作量证明</td><td>算力竞争出块，最先解出数学题的矿工获得记账权</td><td>BTC、LTC、BCH</td><td>安全性极高、去中心化程度高</td><td>能耗巨大、TPS低（BTC约7）</td></tr>
+              <tr><td><strong>PoS</strong> 权益证明</td><td>按持币量和质押时间选出验证者</td><td>ETH（2022合并后）、Cardano</td><td>能耗低、TPS较高</td><td>可能偏向富者愈富</td></tr>
+              <tr><td><strong>DPoS</strong> 委托权益证明</td><td>持币者投票选举超级节点代为验证</td><td>EOS、Tron</td><td>TPS极高（数千）</td><td>中心化风险较高</td></tr>
+              <tr><td><strong>PoH</strong> 历史证明</td><td>通过可验证时间戳建立时序</td><td>Solana</td><td>TPS极高（6.5万+）</td><td>节点要求高、偶有宕机</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="key-card"><div class="kc-title">💡 客服必知</div><ul><li>ETH已于2022年9月从PoW转为PoS（The Merge），客户说"ETH挖矿"时应纠正</li><li>共识机制影响充提币到账时间：PoW链确认较慢，PoS/DPoS链较快</li><li>"51%攻击"：当单一实体控制超过50%算力/权益时可能篡改交易</li></ul></div>
+        <div class="callout callout-tip">💡 客户问"为什么BTC转账这么慢"时，解释PoW机制需要算力竞争出块，平均10分钟一个区块，且需多个确认才算安全到账。</div>
+      </div>
+
+      <!-- 1.3 公链 vs 联盟链 -->
+      <div class="content-block">
+        <h2>1.3 公链 vs 联盟链</h2>
+        <p>区块链按参与权限的不同，分为公有链、联盟链和私有链三大类。交易所主要与公链交互，但了解联盟链有助于回答客户关于企业级区块链的疑问。</p>
+        <h3>三种链的特征对比</h3>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">🌐 公有链（Public Chain）</div><div class="sc-desc">任何人都可以参与读取、发送交易和参与共识。完全去中心化、透明公开。</div><div class="sc-tip">代表：BTC、ETH、SOL</div></div>
+          <div class="step-card"><div class="sc-title">🏢 联盟链（Consortium Chain）</div><div class="sc-desc">由多个组织共同管理，只有授权节点才能参与共识。兼顾效率与部分去中心化。</div><div class="sc-tip">代表：Hyperledger Fabric、FISCO BCOS</div></div>
+          <div class="step-card"><div class="sc-title">🔒 私有链（Private Chain）</div><div class="sc-desc">由单一组织控制，读写权限、参与共识均受限。本质上是一种分布式数据库。</div><div class="sc-tip">适用：企业内部审计、供应链管理</div></div>
+          <div class="step-card warn"><div class="sc-title">⚠️ 客户常见误解</div><div class="sc-desc">客户可能认为"所有区块链都是公开透明的"。实际上联盟链和私有链的数据可以仅对参与者可见，公链才是任何人可查。</div></div>
+        </div>
+      </div>
+
+      <!-- 1.4 区块确认与不可篡改 -->
+      <div class="content-block">
+        <h2>1.4 区块确认与不可篡改</h2>
+        <p>区块链的"不可篡改"并非绝对，而是依赖于经济成本——修改历史区块需要重新计算该区块之后的所有工作量证明，成本极高且几乎不可行。</p>
+        <h3>区块确认机制</h3>
+        <ul>
+          <li><strong>出块</strong>：矿工/验证者将一批交易打包成新区块并广播到网络</li>
+          <li><strong>确认</strong>：后续每增加一个区块，前一区块就获得一次"确认"</li>
+          <li><strong>安全确认数</strong>：通常6个确认（BTC）即认为交易不可逆</li>
+        </ul>
+        <div class="key-card"><div class="kc-title">💡 各链安全确认数要求</div><ul><li>BTC：6次确认 ≈ 60分钟</li><li>ETH：12次确认 ≈ 3分钟</li><li>TRX：19次确认 ≈ 1分钟</li><li>BSC：15次确认 ≈ 5分钟</li><li>SOL：1次确认 ≈ 0.4秒</li></ul></div>
+        <h3>不可篡改原理</h3>
+        <p>每个区块头包含上一个区块的哈希值，形成"链"式结构。修改任何一个区块的数据，其哈希值就会改变，导致后续所有区块的哈希值都不匹配，篡改者需要重新计算所有后续区块的工作量证明。</p>
+        <div class="callout callout-warn">⚠️ 客户问"交易能撤回吗？"时，明确回答：区块链上的交易一旦被确认就不可撤回。这也是为什么充提币选错网络后果严重——交易无法回滚。</div>
+      </div>
+
+      <!-- 2.1 BTC — 数字黄金 -->
+      <div class="content-block">
+        <h2>2.1 BTC — 数字黄金</h2>
+        <p>比特币（Bitcoin，BTC）是2009年由中本聪创建的第一个去中心化加密货币，也是市值最大的加密货币。总量恒定为2100万枚，通过PoW共识机制产生新币。</p>
+        <h3>核心参数</h3>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>参数</th><th>数值</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>总量上限</td><td>21,000,000 BTC</td><td>约2140年挖完最后一枚</td></tr>
+              <tr><td>出块时间</td><td>约10分钟</td><td>难度自动调整维持稳定</td></tr>
+              <tr><td>区块大小</td><td>约1MB（SegWit后等效约4MB）</td><td>影响每笔交易的手续费</td></tr>
+              <tr><td>减半周期</td><td>约4年（21万个区块）</td><td>2024年4月完成第4次减半，区块奖励3.125 BTC</td></tr>
+              <tr><td>最小单位</td><td>1 Satoshi = 0.00000001 BTC</td><td>简称"聪"</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="key-card"><div class="kc-title">💡 客服必知</div><ul><li>BTC减半会导致出块奖励减半，通常影响矿工收入和中期价格预期，但与充提币到账时间无关</li><li>BTC交易不可逆——这是客户需要理解的最重要概念之一</li><li>BTC网络拥堵时，低手续费交易可能长时间不被确认（甚至超过24小时）</li></ul></div>
+        <div class="callout callout-danger">🔴 客户问"BTC什么时候能涨到XX"？→ 这是投资建议，客服绝对不能回答。标准话术："我们无法预测市场走势，请您自行判断或咨询专业投资顾问。"</div>
+      </div>
+
+      <!-- 2.2 ETH — 智能合约 -->
+      <div class="content-block">
+        <h2>2.2 ETH — 智能合约</h2>
+        <p>以太坊（Ethereum，ETH）是2015年上线的开源区块链平台，由Vitalik Buterin提出。它不仅是加密货币，更是一个支持智能合约和去中心化应用（DApp）的完整生态系统。</p>
+        <h3>智能合约</h3>
+        <p>智能合约是部署在区块链上的自动执行程序。当预设条件被满足时，合约自动执行相应操作，无需中介。以太坊上的智能合约主要使用Solidity语言编写。</p>
+        <h3>ETH核心参数</h3>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>参数</th><th>数值</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>共识机制</td><td>PoS（2022年The Merge后）</td><td>已从PoW转为PoS</td></tr>
+              <tr><td>出块时间</td><td>约12秒</td><td>远快于BTC</td></tr>
+              <tr><td>代币标准</td><td>ERC-20（同质化）、ERC-721（NFT）</td><td>交易所大部分代币为ERC-20</td></tr>
+              <tr><td>Gas费</td><td>动态，受网络拥堵影响</td><td>高峰期可能极高</td></tr>
+              <tr><td>EIP-1559</td><td>基础费燃烧机制</td><td>部分Gas费被永久销毁，可能造成ETH通缩</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="key-card"><div class="kc-title">💡 客服必知</div><ul><li>ETH和ERC-20代币共用同一地址格式（0x开头），但它们是不同的资产</li><li>ERC-20代币转账需要ETH支付Gas费，这是客户常见的困惑点</li><li>"以太坊2.0"这个说法已过时，官方统称Ethereum，合并后就是PoS</li></ul></div>
+        <div class="callout callout-tip">💡 客户问"为什么我有USDT但转不出去"？→ 解释：ERC-20 USDT转账需要ETH作为Gas费，请在钱包中保留少量ETH。</div>
+      </div>
+
+      <!-- 2.3 USDT/USDC — 稳定币 -->
+      <div class="content-block">
+        <h2>2.3 USDT/USDC — 稳定币</h2>
+        <p>稳定币是与法币（通常为美元）保持1:1锚定的加密货币。它们结合了加密货币的快速转账特性和法币的价格稳定性，是交易所中最常用的交易对计价单位。</p>
+        <h3>主流稳定币对比</h3>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>特征</th><th>USDT (Tether)</th><th>USDC (Circle)</th><th>DAI (MakerDAO)</th></tr></thead>
+            <tbody>
+              <tr><td>发行方</td><td>Tether Limited</td><td>Circle + Coinbase</td><td>MakerDAO（去中心化）</td></tr>
+              <tr><td>锚定方式</td><td>法币储备（中心化）</td><td>法币储备（中心化）</td><td>加密资产超额抵押</td></tr>
+              <tr><td>审计透明度</td><td>较低（定期发布储备证明）</td><td>较高（月度审计报告）</td><td>链上完全透明</td></tr>
+              <tr><td>支持网络</td><td>OMNI、ERC-20、TRC-20等</td><td>ERC-20为主</td><td>ERC-20</td></tr>
+              <tr><td>市场份额</td><td>最大（约70%+）</td><td>第二（约20%+）</td><td>第三</td></tr>
+              <tr><td>合规风险</td><td>较高</td><td>较低（MiCA合规）</td><td>较低</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="key-card"><div class="kc-title">💡 稳定币三难困境</div><ul><li>稳定性：保持与美元1:1锚定</li><li>去中心化：不依赖中心化发行方</li><li>资本效率：不需要过度抵押</li><li>目前没有任何稳定币能同时完美实现三者</li></ul></div>
+        <div class="callout callout-warn">⚠️ 客户常问"USDT和USDC有什么区别"？→ 主要区别在发行方和透明度。USDT流通量更大但争议更多，USDC合规性更强但流通量较小。两者都是1美元锚定。</div>
+        <div class="callout callout-danger">🔴 不同网络的USDT不互通！ERC-20 USDT和TRC-20 USDT是不同的代币合约，充值时选错网络会导致资产丢失。这是最高频的客诉原因之一。</div>
+      </div>
+
+      <!-- 2.4 主流山寨币分类 -->
+      <div class="content-block">
+        <h2>2.4 主流山寨币分类</h2>
+        <p>除BTC外的加密货币通常被称为"山寨币"（Altcoin）。它们各有不同的定位和技术路线。了解分类有助于客服理解客户的交易需求。</p>
+        <h3>按功能分类</h3>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">🏗️ 基础设施层</div><div class="sc-desc">提供区块链底层服务的项目</div><div class="sc-tip">ETH、SOL、ADA、AVAX、DOT、NEAR</div></div>
+          <div class="step-card"><div class="sc-title">💱 DeFi协议</div><div class="sc-desc">去中心化金融应用代币</div><div class="sc-tip">UNI、AAVE、MKR、CRV、COMP</div></div>
+          <div class="step-card"><div class="sc-title">🎮 GameFi / NFT</div><div class="sc-desc">游戏、元宇宙和数字藏品</div><div class="sc-tip">AXS、SAND、MANA、GALA</div></div>
+          <div class="step-card"><div class="sc-title">🔗 跨链 / Layer2</div><div class="sc-desc">解决扩展性和互操作性问题</div><div class="sc-tip">MATIC(POL)、ARB、OP、LINK</div></div>
+          <div class="step-card"><div class="sc-title">💾 存储与计算</div><div class="sc-desc">分布式存储和计算网络</div><div class="sc-tip">FIL、AR、RNDR、AKT</div></div>
+          <div class="step-card warn"><div class="sc-title">⚠️ Meme币</div><div class="sc-desc">基于互联网梗文化的投机性代币，波动极大</div><div class="sc-tip">DOGE、SHIB、PEPE、WIF</div></div>
+        </div>
+        <div class="callout callout-warn">⚠️ 客服绝不评价任何代币的"好坏"或"是否值得投资"。所有关于代币价值的讨论都应引导至"请自行研究，我们不对投资收益做任何承诺"。</div>
+      </div>
+
+      <!-- 3.1 公钥、私钥、助记词 -->
+      <div class="content-block">
+        <h2>3.1 公钥、私钥、助记词</h2>
+        <p>公钥和私钥是区块链加密体系的核心。理解它们的关系是处理客户安全相关问题的关键。</p>
+        <h3>密钥体系</h3>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">🔑 私钥（Private Key）</div><div class="sc-desc">一串随机生成的数字，是控制链上资产的唯一凭证。谁拥有私钥，谁就拥有资产。私钥绝对不能泄露给任何人。</div></div>
+          <div class="step-card"><div class="sc-title">🔓 公钥（Public Key）</div><div class="sc-desc">由私钥通过椭圆曲线加密算法推导而来。公钥可以公开分享，用于验证签名而非逆向推导私钥。</div></div>
+          <div class="step-card"><div class="sc-title">📝 助记词（Mnemonic）</div><div class="sc-desc">12或24个英文单词，是私钥的人类可读形式。BIP-39标准定义了助记词到私钥的映射。丢失助记词 = 丢失资产。</div></div>
+          <div class="step-card danger"><div class="sc-title">⚠️ 关系链</div><div class="sc-desc">助记词 → 私钥 → 公钥 → 地址。正向推导可行，逆向不可行。</div></div>
+        </div>
+        <div class="callout callout-danger">🔴 客服红线：绝对不能要求客户提供私钥或助记词！永远不能！如果客户主动提供，立即提醒其转移资产并删除聊天记录。</div>
+      </div>
+
+      <!-- 3.2 热钱包 vs 冷钱包 -->
+      <div class="content-block">
+        <h2>3.2 热钱包 vs 冷钱包</h2>
+        <p>按联网状态划分，钱包分为热钱包和冷钱包。交易所通常使用冷热钱包隔离架构来保障用户资金安全。</p>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>特征</th><th>🔥 热钱包</th><th>❄️ 冷钱包</th></tr></thead>
+            <tbody>
+              <tr><td>联网状态</td><td>始终联网</td><td>离线存储</td></tr>
+              <tr><td>安全性</td><td>较低（有被攻击风险）</td><td>极高（物理隔离）</td></tr>
+              <tr><td>便捷性</td><td>高（随时交易）</td><td>低（需手动操作）</td></tr>
+              <tr><td>适用场景</td><td>日常交易、小额资金</td><td>大额资产长期存储</td></tr>
+              <tr><td>代表产品</td><td>MetaMask、Trust Wallet</td><td>Ledger、Trezor硬件钱包</td></tr>
+              <tr><td>交易所用途</td><td>处理日常提币（热端）</td><td>存储绝大部分用户资产（冷端）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="key-card"><div class="kc-title">💡 客服话术要点</div><ul><li>客户问"我的钱安全吗"→"平台采用冷热钱包隔离架构，95%以上的资产存储在离线冷钱包中"</li><li>客户想自己保管→建议使用硬件钱包，并强调备份助记词的重要性</li><li>热钱包被黑 ≠ 冷钱包被黑，两者独立隔离</li></ul></div>
+      </div>
+
+      <!-- 3.3 多签钱包与托管钱包 -->
+      <div class="content-block">
+        <h2>3.3 多签钱包与托管钱包</h2>
+        <p>多签钱包（Multi-sig Wallet）需要多个私钥共同授权才能发起交易，是交易所保障大额资金安全的核心技术。托管钱包则由第三方代为管理私钥。</p>
+        <h3>多签机制</h3>
+        <p>常见配置如"2/3多签"：3个私钥中至少2个签名才能动用资金。这样即使一个私钥泄露，资金仍然安全。交易所的冷钱包通常采用多签机制，需要多个高管共同授权才能提取资金。</p>
+        <h3>托管 vs 非托管</h3>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">🏦 托管钱包（Custodial）</div><div class="sc-desc">交易所替用户管理私钥，用户只需账户密码即可操作。方便但有信任风险。CST即属此类。</div></div>
+          <div class="step-card"><div class="sc-title">🔐 非托管钱包（Non-custodial）</div><div class="sc-desc">用户自行管理私钥和助记词。完全掌控资产，但丢失私钥即丢失资产。如MetaMask。</div></div>
+        </div>
+        <div class="callout callout-warn">⚠️ 客户问"平台倒闭我的钱怎么办"？→ 诚实回答：托管模式下，用户资产由平台管理，存在平台风险。建议大额资产分散存储，不要将所有资产放在单一交易所。</div>
+      </div>
+
+      <!-- 3.4 常见链上地址格式 -->
+      <div class="content-block">
+        <h2>3.4 常见链上地址格式</h2>
+        <p>不同区块链使用不同的地址格式，充值时选对网络至关重要。以下是主流链的地址特征：</p>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>区块链</th><th>地址格式</th><th>示例</th><th>注意事项</th></tr></thead>
+            <tbody>
+              <tr><td>Bitcoin</td><td>1... / 3... / bc1...</td><td>bc1qxy2kgdygjrsqtzq2n0yrf</td><td>bc1为SegWit地址，手续费更低</td></tr>
+              <tr><td>Ethereum / ERC-20</td><td>0x + 40位十六进制</td><td>0x71C7656EC7ab88b098defB75</td><td>ETH和所有ERC-20代币共享地址</td></tr>
+              <tr><td>Tron / TRC-20</td><td>T + 33位Base58</td><td>TN2YqTv5GjY5V7MiJ9G</td><td>USDT-TRC20最常用</td></tr>
+              <tr><td>BSC / BEP-20</td><td>0x开头（同ETH格式）</td><td>0x71C7656EC7ab88b098defB75</td><td>⚠️ 与ETH地址格式相同但网络不同！</td></tr>
+              <tr><td>Solana</td><td>Base58编码</td><td>7xKXtg2CW87d97TXJSDpbD5jBk</td><td>长度和格式与EVM链完全不同</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-danger">🔴 BSC和ETH地址格式完全相同（0x开头），但网络不同！将BSC上的代币转到ETH地址（或反之）会导致资产丢失。这是充提币中最危险的错误之一。</div>
+      </div>
+
+      <!-- 4.1 Gas费与矿工费 -->
+      <div class="content-block">
+        <h2>4.1 Gas费与矿工费</h2>
+        <p>Gas费和矿工费是用户为区块链交易支付给矿工/验证者的费用，用于激励他们处理和验证交易。不同链的计费方式不同。</p>
+        <h3>BTC矿工费</h3>
+        <p>按交易数据大小（vByte）计费，与转账金额无关。网络拥堵时费率上涨。交易所充币通常免手续费（由转出方支付），提币需支付矿工费。</p>
+        <h3>ETH Gas费机制（EIP-1559后）</h3>
+        <ul>
+          <li><strong>基础费（Base Fee）</strong>：由网络自动根据拥堵程度调整，会被永久销毁</li>
+          <li><strong>优先费（Priority Fee）</strong>：给验证者的小费，费越高交易越快被处理</li>
+          <li><strong>Gas Limit</strong>：交易允许消耗的最大Gas单位数量</li>
+          <li><strong>总费用 = Gas Used × (Base Fee + Priority Fee)</strong></li>
+        </ul>
+        <div class="key-card"><div class="kc-title">💡 客服必知</div><ul><li>提币手续费 ≠ 矿工费。提币手续费由平台设定（含矿工费+服务费），矿工费是实际支付给链上验证者的部分</li><li>客户抱怨提币手续费高时，解释链上矿工费波动是原因之一</li><li>ERC-20代币转账需要ETH支付Gas，USDT余额再高，没有ETH也转不动</li></ul></div>
+        <div class="callout callout-tip">💡 可引导客户使用Gas Tracker（如Etherscan的Gas Tracker）查看当前Gas价格，选择低峰时段提币可节省费用。</div>
+      </div>
+
+      <!-- 4.2 交易确认数 -->
+      <div class="content-block">
+        <h2>4.2 交易确认数</h2>
+        <p>交易被矿工打包进区块后，还需要后续区块的确认才能被视为最终确认。不同链和交易所要求的确认数不同。</p>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>币种/网络</th><th>出块时间</th><th>CST要求确认数</th><th>预计到账时间</th></tr></thead>
+            <tbody>
+              <tr><td>BTC</td><td>~10分钟</td><td>6次</td><td>~60分钟</td></tr>
+              <tr><td>ETH / ERC-20</td><td>~12秒</td><td>12次</td><td>~3分钟</td></tr>
+              <tr><td>USDT-TRC20</td><td>~3秒</td><td>19次</td><td>~1分钟</td></tr>
+              <tr><td>BSC / BEP-20</td><td>~3秒</td><td>15次</td><td>~1分钟</td></tr>
+              <tr><td>SOL</td><td>~0.4秒</td><td>1次</td><td>即时</td></tr>
+              <tr><td>XRP</td><td>~4秒</td><td>1次</td><td>即时</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-warn">⚠️ 上述到账时间为链上确认时间。交易所内部入账可能需要额外处理时间（通常5-15分钟）。如超过24小时未到账，请创建工单升级处理。</div>
+      </div>
+
+      <!-- 4.3 交易哈希（TxHash） -->
+      <div class="content-block">
+        <h2>4.3 交易哈希（TxHash）</h2>
+        <p>交易哈希（Transaction Hash，简称TxHash或TxID）是每笔链上交易的唯一标识符，相当于交易的"收据号"。</p>
+        <h3>关键信息</h3>
+        <ul>
+          <li><strong>格式</strong>：一串64位的十六进制字符（如 0xabc123...def456）</li>
+          <li><strong>用途</strong>：在区块链浏览器中查询交易状态、确认数、发送/接收地址、金额等</li>
+          <li><strong>唯一性</strong>：每笔交易的TxHash全球唯一，不可伪造</li>
+          <li><strong>获取方式</strong>：客户可在钱包或交易所的充提币记录中找到</li>
+        </ul>
+        <div class="key-card"><div class="kc-title">💡 客服工作流</div><ul><li>充币未到账 → 必须让客户提供TxHash → 在区块链浏览器查询确认数</li><li>提币问题 → 客服在后台查TxHash → 判断是否已上链</li><li>没有TxHash = 没有链上记录 = 交易可能未发起</li></ul></div>
+      </div>
+
+      <!-- 4.4 链上查询工具 -->
+      <div class="content-block">
+        <h2>4.4 链上查询工具</h2>
+        <p>区块链浏览器是查询链上数据的必备工具，客服必须熟练使用。</p>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>区块链</th><th>推荐浏览器</th><th>网址</th><th>可查信息</th></tr></thead>
+            <tbody>
+              <tr><td>BTC</td><td>mempool.space</td><td>https://mempool.space</td><td>交易状态、确认数、手续费估算</td></tr>
+              <tr><td>ETH</td><td>Etherscan</td><td>https://etherscan.io</td><td>交易、合约、Gas Tracker</td></tr>
+              <tr><td>Tron</td><td>Tronscan</td><td>https://tronscan.org</td><td>交易、资源（带宽/能量）</td></tr>
+              <tr><td>BSC</td><td>BscScan</td><td>https://bscscan.com</td><td>交易、合约</td></tr>
+              <tr><td>SOL</td><td>Solscan</td><td>https://solscan.io</td><td>交易、代币</td></tr>
+              <tr><td>多链聚合</td><td>OKLink</td><td>https://www.oklink.com</td><td>多链统一查询</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-tip">💡 客户说"充币未到账"时，标准流程：1. 让客户提供TxHash → 2. 在对应浏览器查询 → 3. 根据确认数判断是等待还是异常。</div>
+      </div>
+
+      <!-- 5.1 Bitcoin网络 -->
+      <div class="content-block">
+        <h2>5.1 Bitcoin网络</h2>
+        <p>Bitcoin是第一条区块链，也是目前市值最高、安全性最强的加密网络。作为客服，了解BTC网络的运作机制对处理充提币问题至关重要。</p>
+        <h3>网络特性</h3>
+        <ul>
+          <li><strong>UTXO模型</strong>：BTC使用未花费交易输出（UTXO）模型，与ETH的账户模型不同。每笔BTC交易消耗之前的UTXO并生成新的UTXO</li>
+          <li><strong>SegWit</strong>：2017年实施的隔离见证升级，使区块可容纳更多交易，降低手续费。bc1开头的地址即为SegWit地址</li>
+          <li><strong>闪电网络（Lightning Network）</strong>：二层扩容方案，支持即时、低费的微额支付，但交易所目前较少支持</li>
+          <li><strong>RBF（Replace-by-Fee）</strong>：允许发送方通过追加手续费替换未确认交易，加快确认速度</li>
+        </ul>
+        <div class="callout callout-warn">⚠️ 客户BTC充值到隔离见证地址（bc1...）时，部分旧钱包可能不支持，需引导客户升级钱包或使用兼容地址。</div>
+      </div>
+
+      <!-- 5.2 Ethereum及ERC-20 -->
+      <div class="content-block">
+        <h2>5.2 Ethereum及ERC-20</h2>
+        <p>Ethereum是目前最大的智能合约平台，ERC-20是其上最广泛使用的代币标准。交易所上架的绝大多数代币都是ERC-20标准。</p>
+        <h3>ERC-20标准要点</h3>
+        <ul>
+          <li><strong>统一接口</strong>：所有ERC-20代币使用相同的转账、查询余额等函数接口</li>
+          <li><strong>共享地址</strong>：所有ERC-20代币与ETH共用同一个0x地址</li>
+          <li><strong>独立合约</strong>：每种ERC-20代币有独立的智能合约地址（Contract Address）</li>
+          <li><strong>Gas消耗</strong>：ERC-20代币转账的Gas消耗高于纯ETH转账（通常约6万-10万Gas）</li>
+        </ul>
+        <h3>常见ERC-20代币</h3>
+        <p>USDT（ERC-20版本）、USDC、UNI、LINK、AAVE、COMP、MKR、CRV等。</p>
+        <div class="callout callout-danger">🔴 关键区分：同一个0x地址上可以持有多种ERC-20代币，但充值时仍需选择正确的币种。将A代币充值到B代币的地址上可能导致资产丢失（需技术部协助找回）。</div>
+      </div>
+
+      <!-- 5.3 Tron及TRC-20 -->
+      <div class="content-block">
+        <h2>5.3 Tron及TRC-20</h2>
+        <p>Tron（波场）是Justin Sun于2017年创建的高性能公链，采用DPoS共识机制。TRC-20是其代币标准，因USDT-TRC20的低手续费和高速度成为交易所最常用的充提网络之一。</p>
+        <h3>TRC-20 vs ERC-20</h3>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>对比项</th><th>TRC-20</th><th>ERC-20</th></tr></thead>
+            <tbody>
+              <tr><td>TPS</td><td>~2000</td><td>~15</td></tr>
+              <tr><td>出块时间</td><td>~3秒</td><td>~12秒</td></tr>
+              <tr><td>USDT转账手续费</td><td>约1 USDT</td><td>约5-30 USDT（随Gas波动）</td></tr>
+              <tr><td>地址格式</td><td>T开头</td><td>0x开头</td></tr>
+              <tr><td>能量/带宽</td><td>需要TRX支付带宽和能量</td><td>需要ETH支付Gas</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="key-card"><div class="kc-title">💡 客服必知</div><ul><li>USDT-TRC20是目前交易所充值使用率最高的网络，手续费仅约1 USDT</li><li>TRC-20转账需要消耗带宽（Bandwidth）和能量（Energy），没有TRX则无法操作</li><li>TRC-20和ERC-20的USDT不可互通，充值选错网络会丢失资产</li></ul></div>
+      </div>
+
+      <!-- 5.4 BSC/Solana等 -->
+      <div class="content-block">
+        <h2>5.4 BSC/Solana等</h2>
+        <p>除BTC、ETH、Tron外，还有多条重要公链在交易所中有业务涉及。客服需了解其基本特征以处理相关充提币问题。</p>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>公链</th><th>共识机制</th><th>TPS</th><th>代币标准</th><th>地址格式</th><th>核心特点</th></tr></thead>
+            <tbody>
+              <tr><td>BSC (BNB Chain)</td><td>POSA</td><td>~300</td><td>BEP-20</td><td>0x开头</td><td>EVM兼容、手续费低</td></tr>
+              <tr><td>Solana</td><td>PoH+PoS</td><td>~65000</td><td>SPL</td><td>Base58</td><td>超高性能、低费</td></tr>
+              <tr><td>Polygon</td><td>PoS</td><td>~7000</td><td>ERC-20兼容</td><td>0x开头</td><td>ETH Layer2、低Gas</td></tr>
+              <tr><td>Avalanche</td><td>Snowball</td><td>~4500</td><td>ARC-20</td><td>0x开头</td><td>子网架构</td></tr>
+              <tr><td>Arbitrum</td><td>Optimistic Rollup</td><td>~40000</td><td>ERC-20兼容</td><td>0x开头</td><td>ETH Layer2</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-danger">🔴 BSC、Polygon、Arbitrum的地址格式都是0x开头，与ETH完全相同！但网络完全不同。充值时务必仔细选择网络，否则资产将丢失。这是客服需要反复提醒客户的重点。</div>
+      </div>
+
+      <!-- 6.1 DEX原理 -->
+      <div class="content-block">
+        <h2>6.1 DEX原理</h2>
+        <p>去中心化交易所（DEX）是不依赖中心化中介的代币交换协议，通过智能合约自动撮合交易。了解DEX有助于客服理解客户关于链上交易的疑问。</p>
+        <h3>AMM（自动做市商）机制</h3>
+        <p>主流DEX（如Uniswap、PancakeSwap）采用AMM模型。无需传统买卖双方挂单，而是通过流动性池（Liquidity Pool）中的数学公式自动定价。</p>
+        <ul>
+          <li><strong>恒定乘积公式</strong>：x × y = k（如Uniswap V2），x和y代表两种代币的储备量</li>
+          <li><strong>滑点（Slippage）</strong>：大额交易会改变池中比例，导致实际成交价偏离预期</li>
+          <li><strong>流动性提供者（LP）</strong>：用户向池中存入两种代币赚取交易手续费</li>
+          <li><strong>无常损失（Impermanent Loss）</strong>：LP因价格波动导致的相对持币的损失</li>
+        </ul>
+        <div class="callout callout-warn">⚠️ 客户可能将DEX与中心化交易所混淆。关键区别：DEX交易发生在链上智能合约中，CEX交易发生在交易所内部账本中。DEX没有"充值"步骤，直接连接钱包即可交易。</div>
+      </div>
+
+      <!-- 6.2 流动性挖矿与质押 -->
+      <div class="content-block">
+        <h2>6.2 流动性挖矿与质押</h2>
+        <p>DeFi领域的"挖矿"与BTC的PoW挖矿完全不同，它是指通过提供流动性或质押代币来获取收益的行为。</p>
+        <h3>概念区分</h3>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">💧 流动性挖矿（Liquidity Mining）</div><div class="sc-desc">向DEX的流动性池存入代币，赚取交易手续费分成和治理代币奖励。存在无常损失风险。</div></div>
+          <div class="step-card"><div class="sc-title">🔒 质押（Staking）</div><div class="sc-desc">将代币锁定在PoS链或DeFi协议中，为网络安全/治理提供支撑，获取年化收益。存在锁定期和解质押延迟。</div></div>
+          <div class="step-card"><div class="sc-title">🏦 理财产品（Earn）</div><div class="sc-desc">交易所提供的结构化收益产品，本质是平台代用户进行质押或借贷，收益相对稳定但需信任平台。</div></div>
+        </div>
+        <div class="key-card"><div class="kc-title">💡 客服话术要点</div><ul><li>客户问"理财收益为什么变化"→ 解释收益随链上质押率和市场供需波动</li><li>客户问"质押能否随时取出"→ 取决于具体产品，有些有锁定期，有些支持随时赎回</li><li>理财产品的收益率不是保证的，历史收益不代表未来</li></ul></div>
+      </div>
+
+      <!-- 6.3 跨链桥 -->
+      <div class="content-block">
+        <h2>6.3 跨链桥</h2>
+        <p>跨链桥（Cross-chain Bridge）是连接不同区块链的协议，允许资产和信息在链间转移。跨链桥是DeFi生态的重要组成部分，但也是安全风险最高的环节之一。</p>
+        <h3>主要跨链方式</h3>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">🔗 Lock & Mint（锁定+铸造）</div><div class="sc-desc">在源链锁定原始代币，在目标链铸造等量的包装代币（如WBTC）。赎回时销毁包装代币、解锁原始代币。</div></div>
+          <div class="step-card"><div class="sc-title">🔄 流动性池桥</div><div class="sc-desc">在两条链上各设流动性池，用户在A链存入代币，从B链的池中取出等量代币。速度快但受池子流动性限制。</div></div>
+          <div class="step-card warn"><div class="sc-title">⚠️ 跨链桥风险</div><div class="sc-desc">历史上跨链桥是被攻击最频繁的DeFi组件（如Ronin Bridge $6.2亿、Wormhole $3.2亿）。客服应提醒客户注意风险。</div></div>
+        </div>
+        <div class="callout callout-warn">⚠️ 客户通过第三方跨链桥转账到交易所，充币到账的是包装代币而非原生代币时，交易所可能不支持。建议客户使用交易所官方充提通道。</div>
+      </div>
+
+      <!-- 6.4 NFT与数字资产 -->
+      <div class="content-block">
+        <h2>6.4 NFT与数字资产</h2>
+        <p>NFT（Non-Fungible Token，非同质化代币）是使用区块链技术证明唯一性和所有权的数字资产。每个NFT都有独一无二的标识符。</p>
+        <h3>NFT核心概念</h3>
+        <ul>
+          <li><strong>ERC-721</strong>：最常见的NFT标准，每个代币唯一且不可分割</li>
+          <li><strong>ERC-1155</strong>：多代币标准，支持同质化和非同质化代币</li>
+          <li><strong>铸造（Mint）</strong>：创建新NFT的过程</li>
+          <li><strong>元数据（Metadata）</strong>：NFT的名称、描述、图片链接等信息</li>
+          <li><strong>链上存储 vs 链下存储</strong>：图片等大文件通常存储在IPFS等链下存储中，NFT仅包含指向该存储的链接</li>
+        </ul>
+        <div class="key-card"><div class="kc-title">💡 客服必知</div><ul><li>NFT充值到交易所需确认平台支持该NFT的合约地址，不支持则无法入账</li><li>NFT转账Gas费通常高于普通ERC-20代币</li><li>客服不评价任何NFT的价值或投资潜力</li></ul></div>
+        <div class="callout callout-danger">🔴 NFT诈骗常见手法：1. 免费铸造陷阱（授权后钱包被清空）2. 假冒知名项目NFT 3. 钓鱼链接窃取钱包授权。客服应提醒客户不要点击不明链接或随意授权。</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== KB: Exchange Business ===== -->
+<div class="view" id="view-kb-exchange">
+  <div class="page-header">
+    <h1>交易所业务知识</h1>
+    
+  </div>
+  <div class="chapter-layout">
+    <div class="chapter-nav">
+      <div class="cn-title">📖 章节目录</div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第1章 账户体系 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item active" onclick="selectChapter(this)">1.1 注册与登录</div><div class="ch-item" onclick="selectChapter(this)">1.2 账户安全设置</div><div class="ch-item" onclick="selectChapter(this)">1.3 子账户与API</div><div class="ch-item" onclick="selectChapter(this)">1.4 账户冻结/限制</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第2章 交易类型 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">2.1 现货交易</div><div class="ch-item" onclick="selectChapter(this)">2.2 合约交易</div><div class="ch-item" onclick="selectChapter(this)">2.3 杠杆与保证金</div><div class="ch-item" onclick="selectChapter(this)">2.4 理财产品</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第3章 订单机制 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">3.1 订单类型</div><div class="ch-item" onclick="selectChapter(this)">3.2 撮合引擎</div><div class="ch-item" onclick="selectChapter(this)">3.3 部分成交</div><div class="ch-item" onclick="selectChapter(this)">3.4 强制平仓</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第4章 费率体系 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">4.1 现货手续费</div><div class="ch-item" onclick="selectChapter(this)">4.2 合约手续费</div><div class="ch-item" onclick="selectChapter(this)">4.3 VIP等级</div><div class="ch-item" onclick="selectChapter(this)">4.4 充提币手续费</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第5章 资金与账本 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">5.1 资金账户 vs 交易账户</div><div class="ch-item" onclick="selectChapter(this)">5.2 划转机制</div><div class="ch-item" onclick="selectChapter(this)">5.3 账本流水</div><div class="ch-item" onclick="selectChapter(this)">5.4 未实现 vs 已实现盈亏</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第6章 平台规则 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">6.1 上币与下币</div><div class="ch-item" onclick="selectChapter(this)">6.2 交易对命名</div><div class="ch-item" onclick="selectChapter(this)">6.3 价格保护</div><div class="ch-item" onclick="selectChapter(this)">6.4 反操纵政策</div></div></div>
+    </div>
+    <div class="chapter-content">
+
+      <!-- 1.1 注册与登录 -->
+      <div class="content-block">
+        <h2>1.1 注册与登录</h2>
+        <p>CST支持邮箱和手机号两种注册方式。注册完成后需完成基础认证（Lv1）方可进行交易。</p>
+        <h3>注册流程</h3>
+        <div class="flow-diagram" style="margin-bottom:14px"><div class="flow-steps"><div class="flow-step">选择注册方式</div><span class="flow-arrow">→</span><div class="flow-step">输入邮箱/手机号</div><span class="flow-arrow">→</span><div class="flow-step">设置密码</div><span class="flow-arrow">→</span><div class="flow-step">验证码验证</div><span class="flow-arrow">→</span><div class="flow-step">注册成功</div></div></div>
+        <h3>注册要求</h3>
+        <ul>
+          <li><strong>密码规则</strong>：至少8位，必须包含大小写字母和数字，建议包含特殊字符</li>
+          <li><strong>邮箱要求</strong>：必须为有效邮箱，用于接收验证码和安全通知</li>
+          <li><strong>手机号</strong>：支持+86/+1/+852等主要国家/地区区号</li>
+          <li><strong>邀请码</strong>：选填，用于关联推荐人</li>
+        </ul>
+        <h3>登录安全</h3>
+        <ul>
+          <li>新设备首次登录需邮箱/短信验证</li>
+          <li>连续5次密码错误将触发24小时锁定</li>
+          <li>异地登录将触发安全提醒邮件</li>
+        </ul>
+        <div class="callout callout-warn">⚠️ 客户问"收不到验证码"时：1. 检查垃圾邮件 2. 确认邮箱/手机号正确 3. 等待2分钟后重试 4. 仍不行则创建工单。</div>
+      </div>
+
+      <!-- 1.2 账户安全设置 -->
+      <div class="content-block">
+        <h2>1.2 账户安全设置</h2>
+        <p>CST提供多重安全机制，客服需了解每种安全措施的功能和使用方法，以便引导客户正确设置。</p>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">🔐 谷歌验证器（2FA）</div><div class="sc-desc">基于TOTP算法的二次验证。绑定后登录、提币、修改安全设置均需输入6位动态验证码。强烈建议所有用户开启。</div></div>
+          <div class="step-card"><div class="sc-title">📱 手机/邮箱验证</div><div class="sc-desc">通过短信或邮件接收验证码。备用2FA方式，在谷歌验证器丢失时可使用。</div></div>
+          <div class="step-card"><div class="sc-title">🔑 提币白名单</div><div class="sc-desc">限制提币只能发往预设地址。开启后即使账户被盗，黑客也无法将资产转到白名单外的地址。</div></div>
+          <div class="step-card warn"><div class="sc-title">⚠️ 反钓鱼码</div><div class="sc-desc">用户设置一个个性化文字，所有平台官方邮件都会包含此码。帮助识别钓鱼邮件。</div></div>
+        </div>
+        <div class="key-card"><div class="kc-title">💡 客服安全引导话术</div><ul><li>"建议您开启谷歌验证器，这是目前最安全的二次验证方式"</li><li>"开启提币白名单后，只有您预设的地址才能接收提币"</li><li>"请定期检查账户的登录记录和API密钥列表"</li></ul></div>
+        <div class="callout callout-danger">🔴 客户报告谷歌验证器丢失时，需走严格的身份验证流程（视频面签+证件核验），不可直接重置。防止账户被盗后重置2FA。</div>
+      </div>
+
+      <!-- 1.3 子账户与API -->
+      <div class="content-block">
+        <h2>1.3 子账户与API</h2>
+        <p>子账户和API是为专业交易者和机构客户提供的进阶功能。客服需了解基本概念以解答相关问题。</p>
+        <h3>子账户</h3>
+        <ul>
+          <li>主账户可创建多个子账户，各子账户独立交易、独立持仓</li>
+          <li>子账户共享主账户的KYC等级和VIP等级</li>
+          <li>资金可在主子账户间划转</li>
+          <li>适用场景：策略隔离、团队分权管理、量化交易多策略运行</li>
+        </ul>
+        <h3>API密钥</h3>
+        <ul>
+          <li><strong>API Key + Secret Key</strong>：用于程序化交易的身份凭证</li>
+          <li><strong>权限设置</strong>：可单独控制读取、交易、提币权限</li>
+          <li><strong>IP白名单</strong>：限制API只能从指定IP调用</li>
+          <li><strong>频率限制</strong>：每分钟请求次数有上限，超限会被暂时封禁</li>
+        </ul>
+        <div class="callout callout-danger">🔴 API Secret Key只在创建时显示一次！客服无法帮客户找回，只能删除后重新创建。提币权限的API密钥务必绑定IP白名单。</div>
+      </div>
+
+      <!-- 1.4 账户冻结/限制 -->
+      <div class="content-block">
+        <h2>1.4 账户冻结/限制</h2>
+        <p>账户可能因多种原因被冻结或限制。客服需准确识别冻结类型并向客户解释。</p>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>冻结类型</th><th>触发原因</th><th>影响范围</th><th>解冻方式</th></tr></thead>
+            <tbody>
+              <tr><td><span class="tag-sm tag-yellow">风控冻结</span></td><td>异常登录、可疑交易行为</td><td>提币受限</td><td>身份验证后自动/人工解冻</td></tr>
+              <tr><td><span class="tag-sm tag-red">合规冻结</span></td><td>AML命中、制裁名单、司法要求</td><td>全部功能受限</td><td>合规部审核（不可自行解冻）</td></tr>
+              <tr><td><span class="tag-sm tag-yellow">安全冻结</span></td><td>用户自行冻结、疑似被盗</td><td>全部功能受限</td><td>身份验证后解冻</td></tr>
+              <tr><td><span class="tag-sm tag-green">提币限制</span></td><td>KYC等级不足</td><td>仅提币受限</td><td>完成对应等级KYC认证</td></tr>
+              <tr><td><span class="tag-sm tag-yellow">交易限制</span></td><td>违规交易行为</td><td>交易功能受限</td><td>风控部审核</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-danger">🔴 客服不得透露具体触发冻结的规则阈值。对客户统一话术："为了保护您的账户安全，系统触发了安全审查，需要您配合完成验证。"</div>
+      </div>
+
+      <!-- 2.1 现货交易 -->
+      <div class="content-block">
+        <h2>2.1 现货交易</h2>
+        <p>现货交易是最基础的交易类型，买卖双方直接以当前市场价格进行币币交换。</p>
+        <h3>核心概念</h3>
+        <ul>
+          <li><strong>交易对</strong>：如 BTC/USDT，左侧为基础货币（买方想获得的），右侧为计价货币（买方用来支付的）</li>
+          <li><strong>买入（做多）</strong>：用计价货币购买基础货币，预期价格上涨</li>
+          <li><strong>卖出（做空/获利了结）</strong>：出售基础货币获得计价货币</li>
+          <li><strong>最小交易量</strong>：每个交易对有不同的最小下单量限制</li>
+        </ul>
+        <div class="key-card"><div class="kc-title">💡 常见客户疑问</div><ul><li>"为什么我买了币但账户里没显示？"→ 检查资金账户vs交易账户，可能需要划转</li><li>"现货交易有爆仓风险吗？"→ 没有，现货交易不会爆仓</li><li>"买卖价差很大怎么回事？"→ 流动性不足，建议使用限价单</li></ul></div>
+      </div>
+
+      <!-- 2.2 合约交易 -->
+      <div class="content-block">
+        <h2>2.2 合约交易</h2>
+        <p>合约交易是基于标的资产价格的衍生品交易，允许做多做空，使用杠杆放大收益（同时也放大风险）。这是客服收到客诉最多的高风险业务。</p>
+        <h3>合约类型</h3>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">📊 U本位合约</div><div class="sc-desc">以USDT/USDC作为保证金和结算单位。盈亏以稳定币计算，适合新手。最主流的合约类型。</div></div>
+          <div class="step-card"><div class="sc-title">📊 币本位合约</div><div class="sc-desc">以BTC/ETH等加密货币作为保证金。盈亏以基础货币计算，适合长期持有者。</div></div>
+          <div class="step-card warn"><div class="sc-title">⏰ 交割合约</div><div class="sc-desc">有固定到期日，到期时自动交割结算。分为当周、次周、当季、次季。</div></div>
+          <div class="step-card"><div class="sc-title">♾️ 永续合约</div><div class="sc-desc">无到期日，通过资金费率（Funding Rate）锚定现货价格。最活跃的合约品种。</div></div>
+        </div>
+        <h3>资金费率</h3>
+        <p>永续合约每8小时结算一次资金费率。当市场看多情绪浓厚时，多头向空头支付资金费率；反之则空头向多头支付。这是合约持仓成本的重要组成部分。</p>
+        <div class="callout callout-danger">🔴 客服禁止的行为：不得建议客户开合约仓位方向 | 不得解释"应该做多还是做空" | 不得预测资金费率走向。合约是高风险产品，客服只解释机制，不提供策略建议。</div>
+      </div>
+
+      <!-- 2.3 杠杆与保证金 -->
+      <div class="content-block">
+        <h2>2.3 杠杆与保证金</h2>
+        <p>杠杆允许交易者以较少的资金控制较大的头寸。CST提供1-125倍杠杆（视交易对而定），但高杠杆意味着高风险。</p>
+        <h3>保证金机制</h3>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>概念</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>初始保证金</td><td>开仓所需的最低保证金 = 仓位价值 / 杠杆倍数</td></tr>
+              <tr><td>维持保证金</td><td>维持仓位所需的最低保证金率，低于此水平触发强平</td></tr>
+              <tr><td>逐仓模式</td><td>仅投入该仓位的保证金承担风险，亏损不超过保证金</td></tr>
+              <tr><td>全仓模式</td><td>账户所有可用余额都可作为保证金，亏损可能更大</td></tr>
+              <tr><td>保证金率</td><td>（账户权益 / 仓位价值）× 100%，低于维持保证金率触发强平</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="key-card"><div class="kc-title">💡 客服常见问答</div><ul><li>"为什么我加了10倍杠杆，亏损超过了10%？"→ 杠杆放大的是仓位规模，不是亏损上限。10倍杠杆意味着1%的价格波动 = 10%的保证金波动</li><li>"全仓和逐仓哪个好？"→ 各有优劣，客服不建议选择，只解释机制</li><li>"强平价格怎么计算？"→ 引导客户查看交易界面的强平价格显示</li></ul></div>
+      </div>
+
+      <!-- 2.4 理财产品 -->
+      <div class="content-block">
+        <h2>2.4 理财产品</h2>
+        <p>CST提供多种理财产品，客户将闲置代币存入获取收益。客服需了解产品类型和基本规则。</p>
+        <h3>产品分类</h3>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">💰 活期理财</div><div class="sc-desc">随时申购赎回，收益率浮动。底层为DeFi质押或借贷。收益率较低但流动性强。</div></div>
+          <div class="step-card"><div class="sc-title">📅 定期理财</div><div class="sc-desc">固定期限（7/14/30/60/90天），到期自动赎回。收益率较高但锁定期内不可赎回。</div></div>
+          <div class="step-card warn"><div class="sc-title">⚡ 结构化产品</div><div class="sc-desc">收益与标的价格挂钩（如鲨鱼鳍、雪球），可能获得高收益也可能只收回本金。风险较高。</div></div>
+          <div class="step-card"><div class="sc-title">🔒 Staking</div><div class="sc-desc">代币质押获取链上验证收益。有解质押等待期（如ETH约需数天至数周）。</div></div>
+        </div>
+        <div class="callout callout-warn">⚠️ 客户问"理财收益为什么下降"？→ 收益随市场供需和链上质押率变化，历史年化不代表未来收益。定期产品锁定期内不可提前赎回。</div>
+      </div>
+
+      <!-- 3.1 订单类型 -->
+      <div class="content-block">
+        <h2>3.1 订单类型</h2>
+        <p>CST支持多种订单类型，满足不同交易策略需求。客服需了解每种订单的触发逻辑。</p>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>订单类型</th><th>触发逻辑</th><th>适用场景</th></tr></thead>
+            <tbody>
+              <tr><td>限价单（Limit）</td><td>达到指定价格或更优价格时成交</td><td>明确目标买入/卖出价</td></tr>
+              <tr><td>市价单（Market）</td><td>以当前市场最优价格立即成交</td><td>急需成交，不在乎滑点</td></tr>
+              <tr><td>止盈止损单（TP/SL）</td><td>达到触发价后以市价/限价执行</td><td>风险控制、自动平仓</td></tr>
+              <tr><td>计划委托</td><td>满足条件时自动下单</td><td>自动化交易策略</td></tr>
+              <tr><td>只做Maker（Post Only）</td><td>确保订单只作为Maker成交，否则取消</td><td>享受Maker费率优惠</td></tr>
+              <tr><td>IOC（Immediate or Cancel）</td><td>立即成交可成交部分，剩余取消</td><td>不希望挂单等待</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-tip">💡 客户问"我的限价单为什么没成交"？→ 限价单需要市场上有对应价格的对手盘。如果当前价格未达到设定价格，订单将一直挂单等待。</div>
+      </div>
+
+      <!-- 3.2 撮合引擎 -->
+      <div class="content-block">
+        <h2>3.2 撮合引擎</h2>
+        <p>撮合引擎是交易所的核心系统，负责匹配买卖订单。了解其运作机制有助于客服解释交易异常。</p>
+        <h3>撮合规则</h3>
+        <ul>
+          <li><strong>价格优先</strong>：买单价格从高到低，卖单价格从低到高</li>
+          <li><strong>时间优先</strong>：同一价格按下单时间先后排序</li>
+          <li><strong>撮合速度</strong>：CST撮合引擎可达每秒10万笔以上</li>
+        </ul>
+        <h3>盘口与深度</h3>
+        <p>盘口显示买卖双方的挂单情况。买盘（Bid）从高到低排列，卖盘（Ask）从低到高排列。买卖盘之间的价差称为"买卖价差（Spread）"。深度越深，大额交易对价格的影响越小。</p>
+        <div class="callout callout-warn">⚠️ 客户反映"下单后价格跳了"→ 极端行情下市场波动剧烈，限价单可能因价格快速变动而无法成交。市价单则可能出现较大滑点。</div>
+      </div>
+
+      <!-- 3.3 部分成交 -->
+      <div class="content-block">
+        <h2>3.3 部分成交</h2>
+        <p>当订单数量大于当前市场可提供的对手盘时，订单会部分成交，剩余部分继续挂单等待。</p>
+        <h3>部分成交规则</h3>
+        <ul>
+          <li><strong>限价单</strong>：部分成交后剩余部分继续挂单，直到完全成交或用户撤销</li>
+          <li><strong>市价单</strong>：通常立即完全成交，流动性不足时可能部分成交</li>
+          <li><strong>手续费</strong>：按实际成交部分计算，未成交部分不收手续费</li>
+          <li><strong>订单状态</strong>：部分成交 → 可在"当前委托"中查看剩余挂单</li>
+        </ul>
+        <div class="callout callout-tip">💡 客户问"我的订单只成交了一部分"？→ 解释这是正常现象，剩余部分仍在挂单中。如不想等待，可以手动撤销剩余挂单。</div>
+      </div>
+
+      <!-- 3.4 强制平仓 -->
+      <div class="content-block">
+        <h2>3.4 强制平仓</h2>
+        <p>强制平仓（Liquidation）是当合约仓位的保证金率低于维持保证金率时，系统自动平仓以防止亏损超过保证金的机制。</p>
+        <h3>强平流程</h3>
+        <div class="flow-diagram" style="margin-bottom:14px"><div class="flow-steps"><div class="flow-step">保证金率下降</div><span class="flow-arrow">→</span><div class="flow-step">触发追加保证金通知</div><span class="flow-arrow">→</span><div class="flow-step">保证金率继续下降</div><span class="flow-arrow">→</span><div class="flow-step">触发强平</div><span class="flow-arrow">→</span><div class="flow-step">系统接管仓位</div></div></div>
+        <h3>关键指标</h3>
+        <ul>
+          <li><strong>强平价格</strong>：当标记价格达到此价格时触发强平。客户可在交易界面查看</li>
+          <li><strong>标记价格</strong>：用于计算未实现盈亏和强平的参考价格，基于多个交易所的指数加权平均</li>
+          <li><strong>强平手续费</strong>：被强平时会额外收取仓位价值一定比例的手续费</li>
+          <li><strong>穿仓</strong>：极端行情下，强平后保证金不足以覆盖亏损，产生穿仓损失</li>
+        </ul>
+        <div class="key-card"><div class="kc-title">💡 客服高频问答</div><ul><li>"为什么我的强平价格和最后成交价不一样？"→ 强平基于标记价格而非最新成交价</li><li>"能不能撤销强平？"→ 不能。强平是系统自动执行的，不可逆</li><li>"被强平后保证金还能拿回来吗？"→ 通常不能。剩余保证金（如有）扣除强平手续费后退还</li></ul></div>
+        <div class="callout callout-danger">🔴 客服绝不承诺"不会强平"或"可以延迟强平"。强平是系统自动行为，客服无法干预。客户应自行设置止盈止损控制风险。</div>
+      </div>
+
+      <!-- 4.1 现货手续费 -->
+      <div class="content-block">
+        <h2>4.1 现货交易手续费</h2>
+        <p>现货交易手续费分为 Maker 和 Taker 两种费率。Maker 是挂单方（提供流动性），Taker 是吃单方（消耗流动性）。不同VIP等级享受不同费率。</p>
+        <div class="key-card"><div class="kc-title">💡 费率速查</div><ul><li>普通用户 Maker 0.10% / Taker 0.10%</li><li>VIP1 Maker 0.09% / Taker 0.10%</li><li>使用平台币抵扣可享受折扣</li></ul></div>
+        <h3>VIP费率对照表</h3>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>VIP等级</th><th>30日交易量</th><th>现货Maker</th><th>现货Taker</th></tr></thead>
+            <tbody>
+              <tr><td>VIP0</td><td>＜ 50 BTC</td><td>0.10%</td><td>0.10%</td></tr>
+              <tr><td>VIP1</td><td>≥ 50 BTC</td><td>0.09%</td><td>0.10%</td></tr>
+              <tr><td>VIP2</td><td>≥ 200 BTC</td><td>0.08%</td><td>0.09%</td></tr>
+              <tr><td>VIP3</td><td>≥ 500 BTC</td><td>0.07%</td><td>0.08%</td></tr>
+              <tr><td>VIP4</td><td>≥ 1,500 BTC</td><td>0.06%</td><td>0.07%</td></tr>
+              <tr><td>VIP5</td><td>≥ 3,000 BTC</td><td>0.05%</td><td>0.06%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-warn">⚠️ 费率数据以平台最新公告为准。客户询问费率时，引导其至"费率说明"页面查看实时数据。</div>
+      </div>
+
+      <!-- 4.2 合约手续费 -->
+      <div class="content-block">
+        <h2>4.2 合约手续费</h2>
+        <p>合约交易的手续费结构与现货不同，还包含资金费率和强平手续费。</p>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>费用类型</th><th>费率</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>开仓 Maker</td><td>0.02%</td><td>挂单成交</td></tr>
+              <tr><td>开仓 Taker</td><td>0.05%</td><td>吃单成交</td></tr>
+              <tr><td>平仓 Maker</td><td>0.02%</td><td>挂单平仓</td></tr>
+              <tr><td>平仓 Taker</td><td>0.05%</td><td>吃单平仓</td></tr>
+              <tr><td>资金费率</td><td>浮动（每8小时）</td><td>多头/空头互付，非平台收取</td></tr>
+              <tr><td>强平手续费</td><td>仓位价值 × 0.5%</td><td>被强平时额外收取</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-tip">💡 合约手续费远低于现货，但频繁开平仓累积的手续费不容忽视。资金费率每8小时结算一次（00:00/08:00/16:00 UTC），持仓者需注意。</div>
+      </div>
+
+      <!-- 4.3 VIP等级 -->
+      <div class="content-block">
+        <h2>4.3 VIP等级</h2>
+        <p>VIP等级基于30日交易量和平台币持仓量综合评定，等级越高享受越优的费率和权益。</p>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>VIP等级</th><th>30日交易量</th><th>或 平台币持仓</th><th>专属权益</th></tr></thead>
+            <tbody>
+              <tr><td>VIP0</td><td>&lt; 50 BTC</td><td>&lt; 2,000</td><td>基础费率</td></tr>
+              <tr><td>VIP1</td><td>≥ 50 BTC</td><td>≥ 2,000</td><td>费率9折 + 专属客服</td></tr>
+              <tr><td>VIP2</td><td>≥ 200 BTC</td><td>≥ 10,000</td><td>费率8折 + 提币加急</td></tr>
+              <tr><td>VIP3</td><td>≥ 500 BTC</td><td>≥ 50,000</td><td>费率7折 + 活动优先</td></tr>
+              <tr><td>VIP4</td><td>≥ 1,500 BTC</td><td>≥ 100,000</td><td>费率6折 + 1v1客户经理</td></tr>
+              <tr><td>VIP5+</td><td>≥ 3,000 BTC</td><td>≥ 200,000</td><td>定制费率 + API支持</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-warn">⚠️ VIP等级每日0点（UTC）更新计算。客户当日交易量达标后，次日生效。客服不能手动调整VIP等级。</div>
+      </div>
+
+      <!-- 4.4 充提币手续费 -->
+      <div class="content-block">
+        <h2>4.4 充提币手续费</h2>
+        <p>充提币手续费与现货/合约交易手续费独立计算，主要由链上矿工费决定。</p>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>操作</th><th>手续费</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>充币</td><td>免费</td><td>平台不收取充值手续费</td></tr>
+              <tr><td>提币 BTC</td><td>0.0005 BTC</td><td>含矿工费，随网络拥堵程度调整</td></tr>
+              <tr><td>提币 ETH</td><td>0.005 ETH</td><td>动态调整</td></tr>
+              <tr><td>提币 USDT-TRC20</td><td>1 USDT</td><td>最经济的USDT提币方式</td></tr>
+              <tr><td>提币 USDT-ERC20</td><td>5-25 USDT</td><td>随ETH Gas费波动</td></tr>
+              <tr><td>内部转账</td><td>免费</td><td>同平台用户间转账</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-warn">⚠️ 提币手续费会随链上矿工费实时调整，以提币页面显示为准。客服不要口述具体费率，引导客户查看提币页面的实时费用。</div>
+      </div>
+
+      <!-- 5.1 资金账户 vs 交易账户 -->
+      <div class="content-block">
+        <h2>5.1 资金账户 vs 交易账户</h2>
+        <p>CST采用资金账户与交易账户分离架构，这是客户最常困惑的点之一。</p>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">🏦 资金账户（Funding）</div><div class="sc-desc">充提币操作的入口。充入的资金首先进入资金账户，不参与交易。提币也只能从资金账户发起。</div></div>
+          <div class="step-card"><div class="sc-title">📈 交易账户（Trading）</div><div class="sc-desc">用于现货/合约/杠杆交易的资金。只有交易账户中的余额才能下单交易。</div></div>
+          <div class="step-card warn"><div class="sc-title">🔄 划转（Transfer）</div><div class="sc-desc">资金在资金账户和交易账户之间需要手动划转。划转即时到账、免费。</div></div>
+          <div class="step-card danger"><div class="sc-title">⚠️ 客户最高频困惑</div><div class="sc-desc">"充了币但交易不了" → 资金在资金账户，需划转到交易账户。"赚了钱但提不了" → 需从交易账户划转到资金账户。</div></div>
+        </div>
+      </div>
+
+      <!-- 5.2 划转机制 -->
+      <div class="content-block">
+        <h2>5.2 划转机制</h2>
+        <p>划转是资金在不同账户之间移动的操作。了解划转规则是解决客户资金相关问题的关键。</p>
+        <h3>划转类型</h3>
+        <ul>
+          <li><strong>资金 ↔ 现货</strong>：最常用，用于交易前准备和盈利提取</li>
+          <li><strong>资金 ↔ 合约</strong>：合约保证金划入划出</li>
+          <li><strong>资金 ↔ 杠杆</strong>：杠杆交易保证金</li>
+          <li><strong>资金 ↔ 理财</strong>：理财申购赎回</li>
+          <li><strong>主 ↔ 子账户</strong>：主子账户间资金调拨</li>
+        </ul>
+        <div class="key-card"><div class="kc-title">💡 划转规则</div><ul><li>划转即时到账，不收取手续费</li><li>划转金额不能超过转出账户的可用余额</li><li>合约持仓中不能划转全部保证金（需保留维持保证金）</li><li>理财定期产品锁定期内不可划转</li></ul></div>
+      </div>
+
+      <!-- 5.3 账本流水 -->
+      <div class="content-block">
+        <h2>5.3 账本流水</h2>
+        <p>账本流水记录了账户的所有资金变动，是客户核实资金问题的核心工具，也是客服排查问题的重要依据。</p>
+        <h3>流水类型</h3>
+        <div class="exception-table" style="margin-top:8px">
+          <table class="exc-table">
+            <thead><tr><th>类型</th><th>说明</th><th>示例</th></tr></thead>
+            <tbody>
+              <tr><td>充值</td><td>链上充币到账</td><td>+1000 USDT</td></tr>
+              <tr><td>提现</td><td>链上提币扣除</td><td>-500 USDT</td></tr>
+              <tr><td>交易</td><td>买卖成交的资金变动</td><td>+0.05 BTC / -3000 USDT</td></tr>
+              <tr><td>手续费</td><td>交易手续费扣除</td><td>-3 USDT</td></tr>
+              <tr><td>划转</td><td>账户间资金移动</td><td>+1000 USDT (资金←现货)</td></tr>
+              <tr><td>资金费率</td><td>合约资金费率结算</td><td>+0.5 USDT / -0.8 USDT</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-tip">💡 客户质疑资金变动时，引导其查看账本流水，按类型筛选可快速定位。流水记录不可删除或修改。</div>
+      </div>
+
+      <!-- 5.4 未实现 vs 已实现盈亏 -->
+      <div class="content-block">
+        <h2>5.4 未实现 vs 已实现盈亏</h2>
+        <p>合约交易中，盈亏分为未实现盈亏（浮动）和已实现盈亏（实际），理解两者的区别对解答客户盈亏疑问至关重要。</p>
+        <div class="step-cards">
+          <div class="step-card"><div class="sc-title">📊 未实现盈亏（Unrealized PnL）</div><div class="sc-desc">当前持仓的浮动盈亏，随标记价格实时变动。公式：（标记价格 - 开仓均价）× 持仓量 × 方向。仅代表"如果现在平仓能赚/亏多少"，不是实际盈亏。</div></div>
+          <div class="step-card"><div class="sc-title">💰 已实现盈亏（Realized PnL）</div><div class="sc-desc">已经通过平仓实际获得的盈亏。每次部分平仓都会结算对应的已实现盈亏。手续费已从已实现盈亏中扣除。</div></div>
+        </div>
+        <div class="key-card"><div class="kc-title">💡 常见客户困惑</div><ul><li>"我明明赚了，为什么账户余额没变？"→ 未实现盈亏不是实际余额，需平仓后才变成可用余额</li><li>"平仓后盈亏和预期不一样？"→ 已实现盈亏已扣除开仓和平仓手续费</li><li>"为什么我部分平仓后，剩余仓位的开仓均价变了？"→ 部分平仓不影响剩余仓位的开仓均价，开仓均价不变</li></ul></div>
+      </div>
+
+      <!-- 6.1 上币与下币 -->
+      <div class="content-block">
+        <h2>6.1 上币与下币</h2>
+        <p>交易所会定期评估上架和下架代币。客服需了解上下币的基本规则和流程。</p>
+        <h3>上币流程</h3>
+        <ul>
+          <li><strong>项目方申请</strong>：提交项目资料、合规文件、技术审计报告</li>
+          <li><strong>尽职调查</strong>：团队背景、代币经济模型、链上安全审计</li>
+          <li><strong>社区投票</strong>：部分交易所设有社区投票上币机制</li>
+          <li><strong>上线交易</strong>：先开通充提，后开放交易</li>
+        </ul>
+        <h3>下币规则</h3>
+        <ul>
+          <li>交易量持续低于最低标准</li>
+          <li>项目方出现重大安全或合规问题</li>
+          <li>项目团队失联或停止开发</li>
+          <li>监管要求下架</li>
+        </ul>
+        <div class="callout callout-warn">⚠️ 下币前会提前公告（通常7-30天），客户需在此期间处理持仓和提币。下币后充值通道关闭，提币通道通常保留30天。</div>
+      </div>
+
+      <!-- 6.2 交易对命名 -->
+      <div class="content-block">
+        <h2>6.2 交易对命名</h2>
+        <p>理解交易对的命名规则有助于客服准确解答客户的交易相关问题。</p>
+        <h3>命名规则</h3>
+        <ul>
+          <li><strong>币币交易</strong>：基础货币/计价货币，如 BTC/USDT、ETH/BTC</li>
+          <li><strong>合约交易</strong>：品种-到期日/永续，如 BTCUSDT_0627（交割）、BTCUSDT（永续）</li>
+          <li><strong>网络标识</strong>：充提时需区分网络，如 USDT-ERC20、USDT-TRC20</li>
+        </ul>
+        <div class="key-card"><div class="kc-title">💡 客服注意</div><ul><li>BTC/USDT和ETH/USDT是不同的交易对，价格独立</li><li>同一币种在不同网络是不同的代币（如ERC-20 USDT ≠ TRC-20 USDT）</li><li>永续合约用"USDT"后缀，币本位用"BTC"后缀</li></ul></div>
+      </div>
+
+      <!-- 6.3 价格保护 -->
+      <div class="content-block">
+        <h2>6.3 价格保护</h2>
+        <p>价格保护机制旨在防止极端行情下的异常成交，保护交易者免受恶意价格操纵和闪崩影响。</p>
+        <h3>保护措施</h3>
+        <ul>
+          <li><strong>价格偏离限制</strong>：市价单成交价格不能偏离标记价格超过一定比例（通常±5%）</li>
+          <li><strong>涨跌幅限制</strong>：新上线代币可能设有日内涨跌幅限制</li>
+          <li><strong>熔断机制</strong>：极端行情下暂停交易（较少触发）</li>
+          <li><strong>价格指数</strong>：参考多个交易所的加权平均价格，防止单一交易所价格异常</li>
+        </ul>
+        <div class="callout callout-warn">⚠️ 价格保护不能保证不出现亏损。客户在极端行情下仍可能遭受损失。客服不得承诺"价格保护可以防止亏损"。</div>
+      </div>
+
+      <!-- 6.4 反操纵政策 -->
+      <div class="content-block">
+        <h2>6.4 反操纵政策</h2>
+        <p>CST严禁一切形式的市场操纵行为，并设有专门的监控系统检测异常交易。</p>
+        <h3>禁止的操纵行为</h3>
+        <ul>
+          <li><strong>刷量（Wash Trading）</strong>：自己买卖制造虚假交易量</li>
+          <li><strong>幌骗（Spoofing）</strong>：挂大量虚假订单后撤销，误导其他交易者</li>
+          <li><strong>拉盘砸盘（Pump & Dump）</strong>：联合拉升价格后抛售获利</li>
+          <li><strong>内幕交易</strong>：利用未公开信息（如上币信息）提前交易</li>
+          <li><strong>跨市场操纵</strong>：利用现货影响合约价格或反之</li>
+        </ul>
+        <h3>违规处罚</h3>
+        <ul>
+          <li>取消异常交易盈利</li>
+          <li>限制交易功能</li>
+          <li>冻结账户</li>
+          <li>情节严重者移交执法机关</li>
+        </ul>
+        <div class="callout callout-danger">🔴 客服如发现疑似操纵行为（如客户询问异常交易模式），必须立即上报风控部门，不得自行处理或警告客户。</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== KB: Compliance ===== -->
+<div class="view" id="view-kb-compliance">
+  <div class="page-header">
+    <h1>合规与安全知识</h1>
+    <div class="meta"><span class="badge" style="background:#fef2f2;color:#dc2626">合规红线</span></div>
+  </div>
+  <div class="chapter-layout">
+    <div class="chapter-nav">
+      <div class="cn-title">📖 章节目录</div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第1章 反洗钱（AML）<span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item active" onclick="selectChapter(this)">1.1 洗钱常见手法</div><div class="ch-item" onclick="selectChapter(this)">1.2 FATF与旅行规则</div><div class="ch-item" onclick="selectChapter(this)">1.3 可疑交易识别</div><div class="ch-item" onclick="selectChapter(this)">1.4 高风险国家与制裁</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第2章 KYC认证体系 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">2.1 KYC等级与权限</div><div class="ch-item" onclick="selectChapter(this)">2.2 身份验证流程</div><div class="ch-item" onclick="selectChapter(this)">2.3 增强尽职调查</div><div class="ch-item" onclick="selectChapter(this)">2.4 拒绝认证话术</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第3章 客户尽职调查 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">3.1 风险等级分类</div><div class="ch-item" onclick="selectChapter(this)">3.2 持续监控</div><div class="ch-item" onclick="selectChapter(this)">3.3 PEP识别</div><div class="ch-item" onclick="selectChapter(this)">3.4 大额交易报告</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第4章 数据隐私 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">4.1 GDPR要点</div><div class="ch-item" onclick="selectChapter(this)">4.2 信息收集边界</div><div class="ch-item" onclick="selectChapter(this)">4.3 数据存储规范</div><div class="ch-item" onclick="selectChapter(this)">4.4 客服隐私红线</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第5章 平台安全体系 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">5.1 冷热钱包隔离</div><div class="ch-item" onclick="selectChapter(this)">5.2 多重签名</div><div class="ch-item" onclick="selectChapter(this)">5.3 风控系统</div><div class="ch-item" onclick="selectChapter(this)">5.4 安全应急响应</div></div></div>
+      <div class="ch-group"><div class="ch-group-title" onclick="toggleChGroup(this)">第6章 合规红线 <span class="arrow">▼</span></div><div class="ch-items"><div class="ch-item" onclick="selectChapter(this)">6.1 绝对禁止行为</div><div class="ch-item" onclick="selectChapter(this)">6.2 协助规避KYC</div><div class="ch-item" onclick="selectChapter(this)">6.3 内幕与操纵</div><div class="ch-item" onclick="selectChapter(this)">6.4 处罚案例</div></div></div>
+    </div>
+    <div class="chapter-content">
+      <div class="content-block"><h2>1.1 洗钱常见手法</h2><p>洗钱是将非法所得转化为合法资金的过程。加密货币因其跨境、快速、伪匿名的特性，成为洗钱高风险领域。</p><h3>加密货币洗钱三阶段</h3><div class="step-cards"><div class="step-card"><div class="sc-title">1️⃣ 放置（Placement）</div><div class="sc-desc">将非法资金引入加密体系。常见：OTC购买加密货币、使用混币器（Mixer）、多个小额充值分散资金。</div></div><div class="step-card"><div class="sc-title">2️⃣ 分层（Layering）</div><div class="sc-desc">通过多次交易掩盖来源。常见：跨链转账、DEX交易、多交易所间搬移、使用隐私币（XMR）。</div></div><div class="step-card"><div class="sc-title">3️⃣ 整合（Integration）</div><div class="sc-desc">将"洗白"资金重新注入合法经济。常见：提现法币、购买高价值商品、NFT自买自卖。</div></div></div><h3>常见可疑行为</h3><ul><li>频繁在多账户间划转小额资金</li><li>刚完成KYC就进行大额提币</li><li>充币后立即提币到不同地址（快进快出）</li><li>拒绝提供资金来源证明</li><li>使用混币器（Tornado Cash等）转来的资金</li></ul><div class="callout callout-danger">🔴 发现可疑行为不要警告客户！立即内部上报合规部，保持正常服务态度。</div></div>
+
+      <div class="content-block"><h2>1.2 FATF与旅行规则</h2><p>金融行动特别工作组（FATF）是全球反洗钱标准制定机构。其"旅行规则"对加密行业有重大影响。</p><h3>旅行规则要点</h3><ul><li><strong>核心要求</strong>：VASP在转账时必须交换发送方和接收方身份信息</li><li><strong>触发阈值</strong>：≥ 1,000 USD/EUR的转账必须执行</li><li><strong>需传递信息</strong>：发送方姓名、账号、地址；接收方姓名、账号</li><li><strong>2025年FATF更新</strong>：加强DeFi和NFT监管指引，非托管钱包大额交易纳入监控</li></ul><h3>全球主要合规框架</h3><div class="exception-table" style="margin-top:8px"><table class="exc-table"><thead><tr><th>法规</th><th>地区</th><th>要点</th><th>状态</th></tr></thead><tbody><tr><td>MiCA / TFR</td><td>欧盟</td><td>旅行规则无门槛，CASPs需持牌</td><td>2024.12生效</td></tr><tr><td>GENIUS Act</td><td>美国</td><td>稳定币发行方须持储备金</td><td>2025推进中</td></tr><tr><td>FATF Rec.15</td><td>全球</td><td>各国需对VASP实施许可监管</td><td>持续更新</td></tr></tbody></table></div><div class="callout callout-warn">⚠️ 旅行规则意味着大额提币可能需提供接收方身份信息。这是合规要求，不是平台刁难。</div></div>
+
+      <div class="content-block"><h2>1.3 可疑交易识别</h2><p>客服是可疑交易识别的第一线，需关注以下信号：</p><div class="step-cards"><div class="step-card warn"><div class="sc-title">🚩 紧急大额操作</div><div class="sc-desc">客户急迫要求大额提币，拒绝等待正常审核时间。</div></div><div class="step-card warn"><div class="sc-title">🚩 账户行为异常</div><div class="sc-desc">长期不活跃账户突然大额交易，或新注册账户立即大额充提。</div></div><div class="step-card warn"><div class="sc-title">🚩 拒绝合规要求</div><div class="sc-desc">拒绝提供资金来源证明、拒绝增强KYC。</div></div><div class="step-card warn"><div class="sc-title">🚩 链上资金可疑</div><div class="sc-desc">充入资金来自已知混币器、暗网或被标记地址。</div></div></div><div class="callout callout-danger">🔴 标准流程：1.保持正常态度 2.不暗示客户被怀疑 3.立即内部上报合规部 4.按合规部指示操作</div></div>
+
+      <div class="content-block"><h2>1.4 高风险国家与制裁</h2><p>根据FATF和各国制裁名单，部分国家被列为高风险。</p><h3>制裁名单</h3><ul><li><strong>黑名单</strong>：朝鲜、伊朗、缅甸 — 禁止提供服务</li><li><strong>灰名单</strong>：定期更新，需加强尽职调查</li><li><strong>OFAC制裁</strong>（美国）：不得向名单个人/实体提供服务</li><li><strong>EU/UN制裁</strong>：欧盟和联合国范围同样适用</li></ul><div class="callout callout-danger">🔴 帮助客户绕过地域限制是严重合规违规！来自制裁国家的IP将被阻断。如发现VPN绕行，必须拒绝服务并上报。</div></div>
+
+      <div class="content-block"><h2>2.1 KYC等级与权限</h2><div class="exception-table" style="margin-top:8px"><table class="exc-table"><thead><tr><th>等级</th><th>认证要求</th><th>日提币额度</th><th>交易权限</th><th>通过率</th></tr></thead><tbody><tr><td>Lv1 基础</td><td>邮箱/手机验证</td><td>$2,000</td><td>现货交易</td><td>98%</td></tr><tr><td>Lv2 身份认证</td><td>证件+人脸识别</td><td>$50,000</td><td>现货+合约</td><td>82%</td></tr><tr><td>Lv3 高级认证</td><td>地址证明+收入来源</td><td>$200,000</td><td>全部功能</td><td>65%</td></tr></tbody></table></div><div class="key-card"><div class="kc-title">💡 客服必知</div><ul><li>KYC等级只能逐级提升，不可跳级</li><li>未完成KYC不影响充值，但限制提币和部分交易</li><li>等级越高审核越严格，时间可能更长</li></ul></div></div>
+
+      <div class="content-block"><h2>2.2 身份验证流程</h2><div class="flow-diagram" style="margin-bottom:14px"><div class="flow-steps"><div class="flow-step">选择证件类型</div><span class="flow-arrow">→</span><div class="flow-step">上传证件照片</div><span class="flow-arrow">→</span><div class="flow-step">人脸识别</div><span class="flow-arrow">→</span><div class="flow-step">OCR提取信息</div><span class="flow-arrow">→</span><div class="flow-step">自动审核</div><span class="flow-arrow">→</span><div class="flow-step">人工复核(如需)</div></div></div><h3>支持证件</h3><ul><li>身份证（中国大陆居民）</li><li>护照（国际通用，首选推荐）</li><li>驾驶执照（部分国家/地区）</li></ul><h3>审核时效</h3><ul><li>自动审核：5分钟内</li><li>人工复核：4-24小时</li><li>高峰期：可能延长至48小时</li></ul><div class="callout callout-tip">💡 提高通过率：1.证件四角完整入镜 2.光线充足无反光 3.证件在有效期内 4.人脸识别正对镜头无遮挡</div></div>
+
+      <div class="content-block"><h2>2.3 增强尽职调查（EDD）</h2><p>对高风险客户实施更严格的审查。</p><h3>触发条件</h3><ul><li>客户来自FATF灰名单国家</li><li>大额或频繁交易触发风控</li><li>客户被识别为PEP</li><li>资金来源不明或与申报收入不符</li></ul><h3>EDD要求</h3><ul><li>提供资金来源证明（工资单、交易记录、赠与声明）</li><li>提供财富来源声明</li><li>近3个月地址证明</li><li>可能需要视频面签</li></ul><div class="callout callout-warn">⚠️ 话术："这是国际反洗钱合规标准的要求，所有正规金融机构都会执行。提供所需信息后，审核会尽快完成。"</div></div>
+
+      <div class="content-block"><h2>2.4 拒绝认证话术</h2><div class="exception-table"><table class="exc-table"><thead><tr><th>代码</th><th>原因</th><th>客户话术</th><th>内部备注</th></tr></thead><tbody><tr><td><span class="tag-sm tag-yellow">K001</span></td><td>证件模糊</td><td>"您的证件照片不够清晰，请重新拍摄，确保四角完整、文字清晰可辨。"</td><td>提示对焦+光线</td></tr><tr><td><span class="tag-sm tag-red">K002</span></td><td>证件过期</td><td>"您提交的证件已过有效期，请使用在有效期内的证件重新提交。"</td><td>不可通融</td></tr><tr><td><span class="tag-sm tag-yellow">K003</span></td><td>姓名不匹配</td><td>"证件姓名与注册信息不一致，请核实后重新提交。"</td><td>检查拼音大小写</td></tr><tr><td><span class="tag-sm tag-yellow">K004</span></td><td>人脸比对失败</td><td>"人脸验证未通过，请确保光线充足、正面面对镜头。"</td><td>3次失败需人工</td></tr><tr><td><span class="tag-sm tag-red">K005</span></td><td>疑似伪造</td><td>"请提供原件重新拍摄，确保未经任何编辑处理。"</td><td>🔴 立即上报合规</td></tr><tr><td><span class="tag-sm tag-red">K006</span></td><td>AML高风险</td><td>"根据合规要求，需要您补充额外信息以完成审核。"</td><td>升级合规部</td></tr></tbody></table></div><div class="callout callout-danger">🔴 拒绝话术中绝对不能透露风控判断依据！疑似伪造必须上报，客服不能自行判断放行。</div></div>
+
+      <div class="content-block"><h2>3.1 风险等级分类</h2><div class="step-cards"><div class="step-card"><div class="sc-title">🟢 低风险</div><div class="sc-desc">来自低风险国家、资金来源清晰、交易行为正常。常规监控，年度审查。</div></div><div class="step-card warn"><div class="sc-title">🟡 中风险</div><div class="sc-desc">部分特征触发关注。加强监控，半年审查。</div></div><div class="step-card danger"><div class="sc-title">🔴 高风险</div><div class="sc-desc">PEP、制裁关联、大额可疑交易。最严格监控，季度审查，可能限制或关闭账户。</div></div></div><div class="callout callout-danger">🔴 客服不能告知客户其风险等级！对外统一以"合规审查"名义沟通。</div></div>
+
+      <div class="content-block"><h2>3.2 持续监控</h2><p>KYC不是一次性审查，系统实时监控客户行为。</p><h3>监控维度</h3><ul><li><strong>交易频率和金额</strong>：与申报收入是否匹配</li><li><strong>链上行为</strong>：充提地址是否涉及高风险标签</li><li><strong>登录行为</strong>：IP变化、设备指纹变化</li><li><strong>KYC信息变更</strong>：证件更新、地址变更</li><li><strong>负面新闻</strong>：客户是否出现在执法通报中</li></ul><div class="callout callout-warn">⚠️ 话术："根据合规要求，我们需要定期更新客户信息以确保安全。这是正常的合规审查流程。"</div></div>
+
+      <div class="content-block"><h2>3.3 PEP识别</h2><p>PEP（政治公众人物）指担任或曾担任重要公共职务的个人，洗钱和腐败风险较高。</p><h3>PEP分类</h3><ul><li><strong>PEP本人</strong>：国家元首、政府高官、国会议员、高级军官、国企高管等</li><li><strong>PEP关联人</strong>：直系亲属（配偶、子女、父母）</li><li><strong>PEP密切联系人</strong>：有已知密切商业关系的个人</li></ul><h3>PEP处理</h3><ul><li>自动标记为高风险，执行EDD</li><li>需高级管理层批准方可建立业务关系</li><li>加强持续监控，定期审查</li></ul><div class="callout callout-danger">🔴 PEP身份是内部敏感信息。客服不得向客户确认或否认其PEP身份。</div></div>
+
+      <div class="content-block"><h2>3.4 大额交易报告</h2><div class="exception-table" style="margin-top:8px"><table class="exc-table"><thead><tr><th>地区</th><th>单笔报告阈值</th><th>累计报告阈值</th><th>报告对象</th></tr></thead><tbody><tr><td>中国大陆</td><td>5万元人民币</td><td>20万元/日</td><td>中国人民银行</td></tr><tr><td>欧盟</td><td>€10,000</td><td>视成员国规定</td><td>FIU</td></tr><tr><td>美国</td><td>$10,000</td><td>视FinCEN指引</td><td>FinCEN</td></tr></tbody></table></div><div class="callout callout-warn">⚠️ 大额报告由合规部自动完成，客服无需手动操作。大额提币审核时间较长是因为需要完成合规检查。</div></div>
+
+      <div class="content-block"><h2>4.1 GDPR要点</h2><p>通用数据保护条例（GDPR）是欧盟2018年生效的数据隐私法规。</p><h3>核心原则</h3><ul><li><strong>合法、公正、透明</strong>：数据处理必须有合法基础</li><li><strong>目的限制</strong>：数据只能用于收集时声明的目的</li><li><strong>数据最小化</strong>：只收集必要数据</li><li><strong>准确性</strong>：确保数据准确且及时更新</li><li><strong>存储限制</strong>：保留时间不超过必要期限</li><li><strong>安全性</strong>：采取适当安全措施</li></ul><h3>客户权利</h3><ul><li>访问权、更正权、删除权（被遗忘权）、数据可携权</li></ul><div class="callout callout-warn">⚠️ 客户要求行使GDPR权利时，不要自行处理，创建工单转交合规/数据保护部门。</div></div>
+
+      <div class="content-block"><h2>4.2 信息收集边界</h2><h3>可以收集</h3><ul><li>注册邮箱/手机号（身份核实）</li><li>UID（用户标识）</li><li>TxHash（查询交易）</li><li>问题描述和截图</li></ul><h3>禁止收集</h3><ul><li>密码（登录密码、交易密码）</li><li>私钥或助记词</li><li>完整证件号码（除非KYC流程需要）</li><li>银行卡完整卡号</li></ul><div class="callout callout-danger">🔴 客户主动提供密码/私钥：1.立即提醒修改/转移资产 2.不要保存到聊天记录 3.告知会尽快删除</div></div>
+
+      <div class="content-block"><h2>4.3 数据存储规范</h2><ul><li><strong>加密存储</strong>：AES-256或同等标准</li><li><strong>传输加密</strong>：TLS 1.2+</li><li><strong>访问控制</strong>：最小权限原则</li><li><strong>日志审计</strong>：所有数据访问被记录</li><li><strong>保留期限</strong>：KYC数据业务结束后保留5年（AML要求）</li></ul><div class="callout callout-danger">🔴 严禁将客户数据导出到个人设备、截图到非工作系统、通过非加密渠道传输。违规者将面临法律责任。</div></div>
+
+      <div class="content-block"><h2>4.4 客服隐私红线</h2><div class="key-card" style="background:linear-gradient(135deg,#fef2f2,#fff1f2);border-color:#fca5a5"><div class="kc-title" style="color:#dc2626">🚫 隐私红线</div><ul style="color:#991b1b"><li>❌ 不得在非工作场合讨论客户信息</li><li>❌ 不得将客户信息分享给无关同事</li><li>❌ 不得向客户A透露客户B的任何信息</li><li>❌ 不得在社交媒体提及客户信息</li><li>❌ 不得查询与工作无关的客户账户</li><li>❌ 不得保留客户数据副本</li></ul></div><div class="callout callout-danger">🔴 隐私泄露：即时停职→内部调查→解除劳动合同→潜在民事/刑事责任</div></div>
+
+      <div class="content-block"><h2>5.1 冷热钱包隔离</h2><ul><li><strong>热钱包</strong>：在线存储，处理日常提币，仅存2-5%资产</li><li><strong>冷钱包</strong>：离线存储，存放95%+资产，物理隔离</li><li><strong>温钱包</strong>：半离线缓冲层，自动化资金调拨</li></ul><div class="callout callout-tip">💡 "为什么大额提币需要更长时间"？→ 大额提币可能需从冷钱包调拨，需多签审批，处理时间较长。这是为保障资金安全。</div></div>
+
+      <div class="content-block"><h2>5.2 多重签名</h2><ul><li><strong>冷钱包</strong>：3/5多签 — 5位授权人中至少3位签名</li><li><strong>授权人</strong>：CEO、CTO、CFO、安全负责人、合规负责人</li><li><strong>审批流程</strong>：线上申请→独立审核→签名确认→系统执行</li><li><strong>地理分布</strong>：授权人分布在不同城市，防单点攻击</li></ul><div class="callout callout-danger">🔴 多签细节属核心安全信息，客服只能说明"采用多重签名保护"，不得透露具体配置。</div></div>
+
+      <div class="content-block"><h2>5.3 风控系统</h2><div class="step-cards"><div class="step-card"><div class="sc-title">🔐 登录风控</div><div class="sc-desc">异地登录、新设备、异常IP自动触发二次验证或临时锁定。</div></div><div class="step-card"><div class="sc-title">💰 交易风控</div><div class="sc-desc">异常交易量、快速大额交易、频繁充提自动标记审查。</div></div><div class="step-card"><div class="sc-title">🏦 提币风控</div><div class="sc-desc">大额提币、新地址提币、修改白名单后立即提币触发人工审核。</div></div><div class="step-card"><div class="sc-title">🔗 链上风控</div><div class="sc-desc">监控充值地址资金来源，标记混币器、暗网等高风险地址。</div></div></div><div class="callout callout-danger">🔴 客服不得透露风控规则的具体阈值。这会被利用来规避风控。</div></div>
+
+      <div class="content-block"><h2>5.4 安全应急响应</h2><div class="exception-table" style="margin-top:8px"><table class="exc-table"><thead><tr><th>等级</th><th>定义</th><th>响应时间</th></tr></thead><tbody><tr><td><span class="tag-sm tag-red">P0 紧急</span></td><td>大规模资产损失或平台安全严重威胁</td><td>即时</td></tr><tr><td><span class="tag-sm tag-red">P1 严重</span></td><td>少量资产损失或漏洞被利用</td><td>15分钟</td></tr><tr><td><span class="tag-sm tag-yellow">P2 一般</span></td><td>单账户安全事件</td><td>1小时</td></tr><tr><td><span class="tag-sm tag-green">P3 低</span></td><td>安全配置异常但无实际损失</td><td>4小时</td></tr></tbody></table></div><h3>客服职责</h3><ul><li>接收安全事件报告，收集关键信息（UID、异常时间、损失金额）</li><li>立即冻结疑似被盗账户（P2及以上）</li><li>引导客户修改密码、关闭API、撤销授权</li><li>不得讨论安全事件原因或技术细节</li></ul></div>
+
+      <div class="content-block"><h2>6.1 绝对禁止行为清单</h2><div class="callout callout-danger" style="font-size:14px;font-weight:500">🔴 绝对禁止 — 违规即开除</div><div class="key-card" style="background:linear-gradient(135deg,#fef2f2,#fff1f2);border-color:#fca5a5"><div class="kc-title" style="color:#dc2626">🚫 禁止行为</div><ul style="color:#991b1b"><li>❌ 协助客户使用他人证件或伪造证件通过KYC</li><li>❌ 向客户透露风控规则细节</li><li>❌ 代客户操作账户（提币、交易、修改设置）</li><li>❌ 在非官方渠道传递客户数据或内部信息</li><li>❌ 承诺未经审批的补偿或特殊待遇</li><li>❌ 截图或复制客户的证件、私钥等敏感信息</li><li>❌ 利用内幕信息进行交易</li></ul></div></div>
+
+      <div class="content-block"><h2>6.2 协助规避KYC</h2><p>这是最严重的合规红线之一。</p><h3>常见规避手法（需警惕）</h3><ul><li>客户请求使用他人证件代为认证</li><li>客户要求绕过人脸识别环节</li><li>客户声称"证件正在办理中"请求临时开通</li><li>客户使用PS处理的证件照片</li><li>客户提供虚假资金来源证明</li></ul><h3>正确应对</h3><ul><li>明确拒绝任何绕过KYC的请求</li><li>不提供"变通方案"或"临时方案"</li><li>有疑虑上报合规部而非自行判断</li><li>记录客户所有相关请求，保留证据</li></ul></div>
+
+      <div class="content-block"><h2>6.3 内幕与操纵</h2><h3>内幕交易</h3><ul><li>利用即将上币/下币信息提前交易</li><li>利用未公开合作、收购信息交易</li><li>向他人泄露未公开信息</li></ul><h3>市场操纵</h3><ul><li>自买自卖制造虚假交易量</li><li>散布虚假信息影响价格</li><li>联合拉升/砸盘（Pump & Dump）</li><li>幌骗（Spoofing）：挂大单后撤销制造虚假深度</li></ul><div class="callout callout-danger">🔴 掌握未公开信息者严禁利用其交易。违反者将承担刑事法律责任。</div></div>
+
+      <div class="content-block"><h2>6.4 处罚案例</h2><div class="step-cards"><div class="step-card danger"><div class="sc-title">案例1：客服协助假证件KYC</div><div class="sc-desc">私下指导客户换照片"绕过"人脸检测。</div><div class="sc-tip">⚠️ 即时开除，公司被监管罚款50万</div></div><div class="step-card danger"><div class="sc-title">案例2：客服截图客户证件</div><div class="sc-desc">将客户身份证截图保存到个人手机。</div><div class="sc-tip">⚠️ 严重警告+调离岗位</div></div><div class="step-card danger"><div class="sc-title">案例3：客服内幕交易</div><div class="sc-desc">利用上币信息提前买入，获利约2万美元。</div><div class="sc-tip">⚠️ 即时开除，移交执法，面临刑事诉讼</div></div><div class="step-card danger"><div class="sc-title">案例4：客服泄露风控规则</div><div class="sc-desc">透露提币风控阈值，帮助客户分批规避审核。</div><div class="sc-tip">⚠️ 即时开除，被列入行业黑名单</div></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Flow: Deposit/Withdraw ===== -->
+<div class="view" id="view-flow-deposit">
+  <div class="page-header"><h1>充提币流程</h1><div class="meta"><span class="badge badge-core">核心流程</span><span class="badge" style="background:#fef3c7;color:#d97706">高频</span></div></div>
+  <div class="flow-tabs" id="deposit-tabs"><div class="flow-tab active">充币流程</div><div class="flow-tab">提币流程</div><div class="flow-tab">内部转账</div></div>
+  <div id="deposit-content">
+    <div class="flow-diagram"><h3>充币标准流程</h3><div class="flow-steps"><div class="flow-step">选择币种与网络</div><span class="flow-arrow">→</span><div class="flow-step">获取充值地址</div><span class="flow-arrow">→</span><div class="flow-step">客户链上转账</div><span class="flow-arrow">→</span><div class="flow-step">区块确认</div><span class="flow-arrow">→</span><div class="flow-step">到账入账</div></div></div>
+    <div class="step-cards"><div class="step-card"><div class="sc-num">步骤 1</div><div class="sc-title">选择币种与网络</div><div class="sc-desc">提醒客户必须选择与转出钱包一致的网络</div><div class="sc-tip">⚠️ 选错网络 = 资产丢失！</div></div><div class="step-card"><div class="sc-num">步骤 2</div><div class="sc-title">获取充值地址</div><div class="sc-desc">展示充值地址二维码和文字地址，提醒核对</div></div><div class="step-card"><div class="sc-num">步骤 3</div><div class="sc-title">客户链上转账</div><div class="sc-desc">确认Memo/Tag（XRP/EOS等需填写）</div><div class="sc-tip">⚠️ 缺少Memo将导致无法到账</div></div><div class="step-card"><div class="sc-num">步骤 4</div><div class="sc-title">区块确认</div><div class="sc-desc">等待网络确认，不同链要求不同确认数</div></div></div>
+    <div class="content-block" style="margin-top:16px"><h3>提币标准流程</h3><div class="flow-diagram"><div class="flow-steps"><div class="flow-step">选择币种与网络</div><span class="flow-arrow">→</span><div class="flow-step">输入提币地址</div><span class="flow-arrow">→</span><div class="flow-step">输入数量</div><span class="flow-arrow">→</span><div class="flow-step">安全验证</div><span class="flow-arrow">→</span><div class="flow-step">风控审核</div><span class="flow-arrow">→</span><div class="flow-step">上链处理</div></div></div></div>
+    <div class="content-block"><h3>内部转账</h3><p>同平台用户间通过UID/邮箱即可转账，无需链上操作，即时到账且免费。</p><div class="callout callout-tip">💡 内部转账不经过区块链，没有TxHash，不受链上拥堵影响。适合同平台用户间快速资金转移。</div></div>
+    <div class="exception-table"><h3>⚠️ 充币异常处理</h3><table class="exc-table"><thead><tr><th>异常场景</th><th>判断方式</th><th>处理方案</th><th>时效</th></tr></thead><tbody><tr><td><span class="tag-sm tag-yellow">常见</span> 充币未到账</td><td>有TxHash但未到账</td><td>查确认数→未达要求则等待</td><td>1-24h</td></tr><tr><td><span class="tag-sm tag-red">严重</span> 选错网络</td><td>币种与网络不匹配</td><td>升级技术部处理</td><td>3-7工作日</td></tr><tr><td><span class="tag-sm tag-red">严重</span> 缺少Memo/Tag</td><td>有充币记录但未到账</td><td>收集信息→技术部补发</td><td>1-3工作日</td></tr><tr><td><span class="tag-sm tag-yellow">常见</span> 低于最小充币额</td><td>金额低于限制</td><td>告知无法到账→技术部评估</td><td>视情况</td></tr><tr><td><span class="tag-sm tag-red">严重</span> 转错链（EVM互转）</td><td>ERC-20代币转到BSC等</td><td>技术部评估是否可找回</td><td>7-14工作日</td></tr></tbody></table></div>
+    <div class="sla-card"><h3>⏱ 时效与SLA</h3><div class="sla-grid"><div class="sla-item"><div class="si-label">正常充币到账</div><div class="si-value">10-30分钟</div></div><div class="sla-item"><div class="si-label">充币异常处理</div><div class="si-value">1-3工作日</div></div><div class="sla-item"><div class="si-label">正常提币处理</div><div class="si-value">30分钟-2小时</div></div><div class="sla-item"><div class="si-label">提币异常处理</div><div class="si-value">1-5工作日</div></div></div></div>
+  </div>
+</div>
+
+<!-- ===== Flow: KYC ===== -->
+<div class="view" id="view-flow-kyc">
+  <div class="page-header"><h1>KYC审核流程</h1><div class="meta"><span class="badge badge-core">核心流程</span><span class="badge badge-required">合规</span></div></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px">
+    <div class="quick-card" style="flex-direction:column;align-items:flex-start;cursor:default"><div style="font-size:13px;color:#6b7280;margin-bottom:4px">KYC Lv1 · 基础认证</div><div style="font-size:16px;font-weight:600;margin-bottom:6px">邮箱/手机验证</div><div style="font-size:12px;color:#6b7280">日提币额度 $2,000</div><div style="font-size:12px;color:#10b981;margin-top:6px">通过率 98%</div></div>
+    <div class="quick-card" style="flex-direction:column;align-items:flex-start;cursor:default;border-color:#4f46e5"><div style="font-size:13px;color:#4f46e5;margin-bottom:4px">KYC Lv2 · 身份认证 ⭐重点</div><div style="font-size:16px;font-weight:600;margin-bottom:6px">证件 + 人脸识别</div><div style="font-size:12px;color:#6b7280">日提币额度 $50,000</div><div style="font-size:12px;color:#f59e0b;margin-top:6px">通过率 82%</div></div>
+    <div class="quick-card" style="flex-direction:column;align-items:flex-start;cursor:default"><div style="font-size:13px;color:#6b7280;margin-bottom:4px">KYC Lv3 · 高级认证</div><div style="font-size:16px;font-weight:600;margin-bottom:6px">地址证明 + 收入来源</div><div style="font-size:12px;color:#6b7280">日提币额度 $200,000</div><div style="font-size:12px;color:#f59e0b;margin-top:6px">通过率 65%</div></div>
+  </div>
+  <div class="content-block"><h3>审核全流程</h3><div class="flow-diagram"><div class="flow-steps"><div class="flow-step">提交资料</div><span class="flow-arrow">→</span><div class="flow-step">OCR+人脸识别</div><span class="flow-arrow">→</span><div class="flow-step">自动审核</div><span class="flow-arrow">→</span><div class="flow-step">通过/人工复核</div><span class="flow-arrow">→</span><div class="flow-step">通知结果</div></div></div></div>
+  <div class="exception-table"><h3>拒绝原因与标准话术</h3><table class="exc-table"><thead><tr><th>代码</th><th>原因</th><th>客户话术</th><th>内部备注</th></tr></thead><tbody><tr><td><span class="tag-sm tag-yellow">K001</span></td><td>证件模糊</td><td>"您的证件照片不够清晰，请重新拍摄，确保四角完整、文字清晰可辨。"</td><td>提示对焦+光线</td></tr><tr><td><span class="tag-sm tag-red">K002</span></td><td>证件过期</td><td>"您提交的证件已过有效期，请使用在有效期内的证件重新提交。"</td><td>不可通融</td></tr><tr><td><span class="tag-sm tag-yellow">K003</span></td><td>姓名不匹配</td><td>"证件姓名与注册信息不一致，请核实后重新提交。"</td><td>检查拼音大小写</td></tr><tr><td><span class="tag-sm tag-yellow">K004</span></td><td>人脸比对失败</td><td>"人脸验证未通过，请确保光线充足、正面面对镜头。"</td><td>3次失败需人工</td></tr><tr><td><span class="tag-sm tag-red">K005</span></td><td>疑似伪造</td><td>"请提供原件重新拍摄，确保未经任何编辑处理。"</td><td>🔴 立即上报合规</td></tr><tr><td><span class="tag-sm tag-red">K006</span></td><td>AML高风险</td><td>"根据合规要求，需要您补充额外信息以完成审核。"</td><td>升级合规部</td></tr></tbody></table></div>
+  <div class="callout callout-danger">🔴 KYC是合规红线！拒绝话术中绝对不能透露风控判断依据。疑似伪造必须上报，客服不能自行判断放行。</div>
+</div>
+
+<!-- ===== Flow: Complaint ===== -->
+<div class="view" id="view-flow-complaint">
+  <div class="page-header"><h1>投诉与升级流程</h1><div class="meta"><span class="badge badge-core">核心流程</span></div></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px">
+    <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px;text-align:center"><div style="font-size:18px;font-weight:700;color:#16a34a">L1</div><div style="font-size:12px;color:#6b7280;margin-top:4px">常规咨询</div><div style="font-size:12px;color:#16a34a;margin-top:2px">SLA 4h</div></div>
+    <div style="background:#fefce8;border:1px solid #fef08a;border-radius:10px;padding:14px;text-align:center"><div style="font-size:18px;font-weight:700;color:#ca8a04">L2</div><div style="font-size:12px;color:#6b7280;margin-top:4px">一般投诉</div><div style="font-size:12px;color:#ca8a04;margin-top:2px">SLA 8h</div></div>
+    <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px;text-align:center"><div style="font-size:18px;font-weight:700;color:#ea580c">L3</div><div style="font-size:12px;color:#6b7280;margin-top:4px">严重投诉</div><div style="font-size:12px;color:#ea580c;margin-top:2px">SLA 24h</div></div>
+    <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:14px;text-align:center"><div style="font-size:18px;font-weight:700;color:#dc2626">L4</div><div style="font-size:12px;color:#6b7280;margin-top:4px">危机事件</div><div style="font-size:12px;color:#dc2626;margin-top:2px">SLA 2h首次响应</div></div>
+  </div>
+  <div class="exception-table"><h3>升级判定矩阵</h3><table class="exc-table"><thead><tr><th>判定条件</th><th>升级等级</th><th>升级对象</th><th>首次响应</th></tr></thead><tbody><tr><td>客服5分钟内无法解答</td><td>L1→L2</td><td>组长</td><td>30min</td></tr><tr><td>客户明确要求上级处理</td><td>L2→L3</td><td>主管</td><td>2h</td></tr><tr><td>涉及资金损失 &gt;$1,000</td><td>L2→L3</td><td>主管+技术</td><td>1h</td></tr><tr><td>涉及资金损失 &gt;$10,000</td><td>L3→L4</td><td>管理层</td><td>30min</td></tr><tr><td><span class="tag-sm tag-red">紧急</span> 威胁媒体/监管</td><td>L2→L4</td><td>主管+PR+法务</td><td>即时</td></tr><tr><td><span class="tag-sm tag-red">紧急</span> 群体性投诉（≥5人）</td><td>L3→L4</td><td>管理层</td><td>即时</td></tr><tr><td>涉及法律威胁</td><td>L3→L4</td><td>法务部</td><td>即时</td></tr></tbody></table></div>
+  <div class="content-block"><h3>📝 受理话术模板</h3><div style="background:#1a1a2e;color:#e5e7eb;border-radius:8px;padding:16px;font-family:monospace;font-size:12.5px;line-height:1.8;white-space:pre-wrap">【开场】您好，我是客服[姓名]，工号[编号]，非常抱歉给您带来不好的体验，我会全程跟进您的问题直到解决。
+
+【确认】请问您的注册邮箱/手机号是？我需要先核实您的身份。
+
+【记录】我已经记录了您的问题，工单号是[TK号]，您随时可以用这个编号查询进展。
+
+【承诺】我会在[时间]内给您回复处理进展，请您放心。</div></div>
+  <div class="content-block"><h3>🔄 回访闭环流程</h3><div class="flow-diagram"><div class="flow-steps"><div class="flow-step">投诉受理</div><span class="flow-arrow">→</span><div class="flow-step">工单分配</div><span class="flow-arrow">→</span><div class="flow-step">处理跟进</div><span class="flow-arrow">→</span><div class="flow-step">首次回访</div><span class="flow-arrow">→</span><div class="flow-step">满意度确认</div><span class="flow-arrow">→</span><div class="flow-step">工单关闭</div></div></div><ul><li>所有投诉必须在SLA内首次响应</li><li>处理完成后24小时内必须回访</li><li>客户不满意不可直接关闭工单</li><li>L3及以上投诉需主管确认后方可关闭</li></ul></div>
+</div>
+
+<!-- ===== Flow: Exception ===== -->
+<div class="view" id="view-flow-exception">
+  <div class="page-header"><h1>异常处理流程</h1><div class="meta"><span class="badge badge-core">核心流程</span><span class="badge badge-required">紧急响应</span></div></div>
+  <div class="dept-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="dept-card" style="border-left:4px solid #ef4444"><div class="dc-icon">🔧</div><div class="dc-name">系统故障</div><div class="dc-desc">平台宕机/接口异常</div></div>
+    <div class="dept-card" style="border-left:4px solid #f59e0b"><div class="dc-icon">📉</div><div class="dc-name">价格异常</div><div class="dc-desc">闪崩/插针/价格偏差</div></div>
+    <div class="dept-card" style="border-left:4px solid #ef4444"><div class="dc-icon">🔒</div><div class="dc-name">安全事件</div><div class="dc-desc">账户被盗/异常登录</div></div>
+    <div class="dept-card" style="border-left:4px solid #f59e0b"><div class="dc-icon">⚡</div><div class="dc-name">网络拥堵</div><div class="dc-desc">链上拥堵/提币延迟</div></div>
+    <div class="dept-card" style="border-left:4px solid #dc2626"><div class="dc-icon">📋</div><div class="dc-name">合规事件</div><div class="dc-desc">监管调查/司法冻结</div></div>
+    <div class="dept-card" style="border-left:4px solid #f59e0b"><div class="dc-icon">🌐</div><div class="dc-name">第三方异常</div><div class="dc-desc">支付通道/云服务故障</div></div>
+  </div>
+  <div class="content-block"><h3>⏱ 系统故障 — 客服应急时间线</h3><div style="margin-top:14px"><div style="display:flex;gap:16px;margin-bottom:12px;padding:12px;background:#f8f9fc;border-radius:8px;align-items:center"><div style="font-weight:700;color:#4f46e5;width:80px;flex-shrink:0">T+0</div><div style="flex:1"><strong>即时</strong>：确认问题范围，告知客户"我们已发现问题，技术团队正在处理"</div></div><div style="display:flex;gap:16px;margin-bottom:12px;padding:12px;background:#f8f9fc;border-radius:8px;align-items:center"><div style="font-weight:700;color:#f59e0b;width:80px;flex-shrink:0">T+5min</div><div style="flex:1"><strong>5分钟内</strong>：上报组长+技术部，内部通报</div></div><div style="display:flex;gap:16px;margin-bottom:12px;padding:12px;background:#f8f9fc;border-radius:8px;align-items:center"><div style="font-weight:700;color:#f59e0b;width:80px;flex-shrink:0">T+15min</div><div style="flex:1"><strong>15分钟内</strong>：统一口径通知客户"问题正在处理中"</div></div><div style="display:flex;gap:16px;margin-bottom:12px;padding:12px;background:#f8f9fc;border-radius:8px;align-items:center"><div style="font-weight:700;color:#ea580c;width:80px;flex-shrink:0">T+30min</div><div style="flex:1"><strong>30分钟内</strong>：更新进展"修复进展：XXX"</div></div><div style="display:flex;gap:16px;margin-bottom:12px;padding:12px;background:#f0fdf4;border-radius:8px;align-items:center"><div style="font-weight:700;color:#10b981;width:80px;flex-shrink:0">T+解决</div><div style="flex:1"><strong>即时</strong>：通知恢复+致歉</div></div></div></div>
+  <div class="content-block"><h3>📉 价格异常处理</h3><ul><li><strong>闪崩/插针</strong>：记录受影响客户和交易，上报风控部评估是否启动价格保护</li><li><strong>合约异常强平</strong>：收集客户UID和仓位信息，技术部排查标记价格是否异常</li><li><strong>客户诉求</strong>：不得承认平台过失，不得承诺赔偿，统一话术"我们正在核查相关情况"</li></ul></div>
+  <div class="content-block"><h3>🔒 账户被盗应急</h3><div class="flow-diagram"><div class="flow-steps"><div class="flow-step">客户报告被盗</div><span class="flow-arrow">→</span><div class="flow-step">核实身份</div><span class="flow-arrow">→</span><div class="flow-step">冻结账户</div><span class="flow-arrow">→</span><div class="flow-step">引导改密+关闭API</div><span class="flow-arrow">→</span><div class="flow-step">上报安全部</div></div></div><div class="callout callout-danger">🔴 被盗应急优先级最高！核实身份后立即冻结账户，每分钟都可能造成更多损失。</div></div>
+  <div class="callout callout-danger" style="margin-top:16px">🔴 核心原则：在未获得官方确认前，绝不能向客户承诺任何赔偿或承认平台过失！</div>
+</div>
+
+<!-- ===== Script: FAQ ===== -->
+<div class="view" id="view-script-faq">
+  <div class="page-header"><h1>常见问题话术库</h1><div class="meta"><span class="badge badge-core">高频工具</span></div></div>
+  <div class="script-search"><input type="text" placeholder="搜索问题关键词或话术内容..."><select><option>全部分类</option><option>账户问题</option><option>交易问题</option><option>充提币问题</option><option>安全问题</option><option>KYC问题</option></select><select><option>全部渠道</option><option>在线</option><option>电话</option><option>邮件</option></select></div>
+  <div class="flow-tabs" style="margin-bottom:16px"><div class="flow-tab active">🔐 账户问题</div><div class="flow-tab">💱 交易问题</div><div class="flow-tab">💰 充提币问题</div><div class="flow-tab">🛡️ 安全问题</div><div class="flow-tab">📋 KYC问题</div><div class="flow-tab">📱 平台使用</div></div>
+  <div class="script-list">
+    <div class="script-card" onclick="toggleScriptDetail(this)"><div class="sc-header"><h4>忘记密码怎么办？</h4><div class="tags"><span class="tag-sm tag-blue">高频</span><span class="tag-sm tag-green">在线</span></div></div><div class="sc-preview">您好，请在登录页面点击"忘记密码"，输入注册邮箱后按提示重置...</div><div class="sc-actions"><button class="btn-copy" onclick="event.stopPropagation();copyText(this)">📋 复制</button><button class="btn-fav">⭐ 收藏</button><button class="btn-expand">展开全文 ▼</button></div><div class="script-detail"><div class="sd-scenario">适用场景：客户咨询密码重置，在线渠道</div><div class="sd-script">【开场】您好，我来帮您处理密码重置的问题。
+
+【引导】请在登录页面点击"忘记密码"，输入您的注册邮箱，系统会发送重置链接到您的邮箱。
+
+【跟进】请检查您的收件箱和垃圾邮件文件夹。如果10分钟内未收到邮件，请告诉我您的注册邮箱，我来核实。
+
+【确认】重置链接有效期为24小时，请在有效期内完成密码修改。还有其他问题吗？<button class="copy-btn" onclick="copyScript(this)">复制</button></div><div class="sd-notes"><div class="note note-warn">⚠️ 不可在聊天中发送密码重置链接，必须引导客户通过官方流程操作</div></div></div></div>
+
+    <div class="script-card" onclick="toggleScriptDetail(this)"><div class="sc-header"><h4>账户被冻结</h4><div class="tags"><span class="tag-sm tag-red">高频</span><span class="tag-sm tag-yellow">电话</span></div></div><div class="sc-preview">我理解您的焦急，账户冻结通常是因为风控触发或合规要求...</div><div class="sc-actions"><button class="btn-copy" onclick="event.stopPropagation();copyText(this)">📋 复制</button><button class="btn-fav">⭐ 收藏</button><button class="btn-expand">展开全文 ▼</button></div><div class="script-detail"><div class="sd-scenario">适用场景：客户账户被冻结，情绪可能激动，电话渠道</div><div class="sd-script">【开场】您好，我是客服[姓名]，工号[编号]，我来帮您查看账户情况。
+
+【确认】请问您的注册邮箱/手机号是？我需要先核实您的身份。
+
+【查询】我查到您的账户目前处于冻结状态，原因是[风控触发/合规要求/异常操作]。
+
+【说明】账户冻结是为了保护您的资产安全。解冻需要您配合完成：1. [步骤1] 2. [步骤2]
+
+【结束】感谢您的配合，我们会尽快处理。如有进展会第一时间通知您。<button class="copy-btn" onclick="copyScript(this)">复制</button></div><div class="sd-notes"><div class="note note-danger">🔴 不得透露具体风控规则细节</div><div class="note note-danger">🔴 不得承诺具体解冻时间</div><div class="note note-warn">⚠️ 涉及合规冻结必须升级合规部</div></div></div></div>
+
+    <div class="script-card" onclick="toggleScriptDetail(this)"><div class="sc-header"><h4>充币未到账</h4><div class="tags"><span class="tag-sm tag-red">高频</span><span class="tag-sm tag-green">在线</span></div></div><div class="sc-preview">请您提供TxHash交易哈希，我来帮您查询链上状态...</div><div class="sc-actions"><button class="btn-copy" onclick="event.stopPropagation();copyText(this)">📋 复制</button><button class="btn-fav">⭐ 收藏</button><button class="btn-expand">展开全文 ▼</button></div><div class="script-detail"><div class="sd-scenario">适用场景：客户充币后长时间未到账</div><div class="sd-script">【开场】您好，我来帮您查询充币状态。
+
+【收集信息】请提供以下信息：1. 充值的币种和网络 2. TxHash交易哈希 3. 转出数量
+
+【查询】我已查到您的交易，目前链上确认数为[X/Y]，需要达到[Y]次确认后自动到账。
+
+【解释】不同网络确认时间不同：BTC约10分钟/次，ETH约15秒/次，TRX约3秒/次。请您耐心等待。
+
+【异常处理】如确认数已达要求仍未到账，我会为您创建工单升级技术部处理。<button class="copy-btn" onclick="copyScript(this)">复制</button></div></div></div>
+
+    <div class="script-card" onclick="toggleScriptDetail(this)"><div class="sc-header"><h4>提币审核中/被风控拦截</h4><div class="tags"><span class="tag-sm tag-yellow">常见</span><span class="tag-sm tag-green">在线</span></div></div><div class="sc-preview">提币审核是正常的风控流程，审核通过后会自动处理...</div><div class="sc-actions"><button class="btn-copy" onclick="event.stopPropagation();copyText(this)">📋 复制</button><button class="btn-fav">⭐ 收藏</button><button class="btn-expand">展开全文 ▼</button></div><div class="script-detail"><div class="sd-scenario">适用场景：提币状态显示审核中或被风控拦截</div><div class="sd-script">【开场】您好，我来帮您查看提币状态。
+
+【查询】您的提币当前状态为[审核中/风控审核]，这是正常的资金安全保护流程。
+
+【解释】大额提币或异常提币行为会触发风控审核，审核通过后会自动处理上链。
+
+【时间】审核通常在2-4小时内完成，审核结果会通过邮件通知您。
+
+【补充】如需加急，VIP用户可联系专属客服优先处理。<button class="copy-btn" onclick="copyScript(this)">复制</button></div></div></div>
+
+    <div class="script-card" onclick="toggleScriptDetail(this)"><div class="sc-header"><h4>KYC认证被拒</h4><div class="tags"><span class="tag-sm tag-yellow">常见</span><span class="tag-sm tag-green">在线</span></div></div><div class="sc-preview">您的KYC认证未通过，原因是[具体原因]，您可以修改后重新提交...</div><div class="sc-actions"><button class="btn-copy" onclick="event.stopPropagation();copyText(this)">📋 复制</button><button class="btn-fav">⭐ 收藏</button><button class="btn-expand">展开全文 ▼</button></div><div class="script-detail"><div class="sd-scenario">适用场景：KYC认证被拒绝，需引导重新提交</div><div class="sd-script">【开场】您好，我来帮您查看KYC认证状态。
+
+【查询】您的KYC认证未通过，原因是[证件模糊/信息不匹配/人脸验证失败]。
+
+【引导】请您按以下要求重新提交：1. 确保证件四角完整、文字清晰 2. 在光线充足的环境下拍摄 3. 确保面部无遮挡
+
+【承诺】重新提交后，系统会在5分钟内完成初审，如需人工复核4小时内出结果。<button class="copy-btn" onclick="copyScript(this)">复制</button></div><div class="sd-notes"><div class="note note-danger">🔴 不可透露具体风控判断逻辑</div></div></div></div>
+
+    <div class="script-card" onclick="toggleScriptDetail(this)"><div class="sc-header"><h4>合约被强平</h4><div class="tags"><span class="tag-sm tag-red">高频</span><span class="tag-sm tag-yellow">电话</span></div></div><div class="sc-preview">我理解您的损失让您很痛苦，让我帮您查看强平的详细情况...</div><div class="sc-actions"><button class="btn-copy" onclick="event.stopPropagation();copyText(this)">📋 复制</button><button class="btn-fav">⭐ 收藏</button><button class="btn-expand">展开全文 ▼</button></div><div class="script-detail"><div class="sd-scenario">适用场景：客户合约被强制平仓，情绪激动</div><div class="sd-script">【共情】我理解这一定让您很难受，我会帮您仔细查看情况。
+
+【查询】您的[币种]合约仓位在[时间]被强平，当时标记价格为[价格]，强平价格为[价格]。
+
+【解释】强平是当保证金率低于维持保证金率时系统自动执行的，目的是防止亏损超过保证金。
+
+【引导】您可以在交易历史中查看详细的强平记录和剩余保证金。如有疑问我可以帮您进一步核实。<button class="copy-btn" onclick="copyScript(this)">复制</button></div><div class="sd-notes"><div class="note note-danger">🔴 不得承诺补偿或承认强平有误</div><div class="note note-danger">🔴 不得质疑强平系统准确性</div></div></div></div>
+
+    <div class="script-card" onclick="toggleScriptDetail(this)"><div class="sc-header"><h4>充错网络/提错网络</h4><div class="tags"><span class="tag-sm tag-red">严重</span><span class="tag-sm tag-green">在线</span></div></div><div class="sc-preview">非常理解您的焦急，选错网络是比较严重的情况，我马上为您处理...</div><div class="sc-actions"><button class="btn-copy" onclick="event.stopPropagation();copyText(this)">📋 复制</button><button class="btn-fav">⭐ 收藏</button><button class="btn-expand">展开全文 ▼</button></div><div class="script-detail"><div class="sd-scenario">适用场景：客户充币/提币选错网络</div><div class="sd-script">【共情】我完全理解您的焦急，选错网络确实是个麻烦的情况。
+
+【收集】请提供以下信息：1. 币种和金额 2. 使用的网络 3. 正确应该使用的网络 4. TxHash
+
+【处理】我会为您创建紧急工单升级技术部处理。技术部会评估资产是否可以找回。
+
+【预期】找回过程需要3-14个工作日，不保证100%成功，但我们会尽全力。
+
+【预防】以后充提币时，请务必仔细核对网络选择。<button class="copy-btn" onclick="copyScript(this)">复制</button></div><div class="sd-notes"><div class="note note-danger">🔴 不得承诺一定能找回</div><div class="note note-warn">⚠️ 找回可能需要技术部手动操作</div></div></div></div>
+  </div>
+</div>
+
+<!-- ===== Script: Emotion ===== -->
+<div class="view" id="view-script-emotion">
+  <div class="page-header"><h1>情绪与危机话术</h1></div>
+  <div class="dept-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:20px">
+    <div class="dept-card" style="border-top:4px solid #ef4444"><div class="dc-icon">😤</div><div class="dc-name">愤怒客户</div><div class="dc-desc">服务不满/结果不接受</div></div>
+    <div class="dept-card" style="border-top:4px solid #f59e0b"><div class="dc-icon">😰</div><div class="dc-name">恐慌客户</div><div class="dc-desc">暴跌/被盗/恐慌提币</div></div>
+    <div class="dept-card" style="border-top:4px solid #3b82f6"><div class="dc-icon">😢</div><div class="dc-name">焦虑客户</div><div class="dc-desc">资产安全/等待焦虑</div></div>
+    <div class="dept-card" style="border-top:4px solid #dc2626"><div class="dc-icon">🗣️</div><div class="dc-name">威胁客户</div><div class="dc-desc">投诉/曝光/法律威胁</div></div>
+    <div class="dept-card" style="border-top:4px solid #7c3aed"><div class="dc-icon">📰</div><div class="dc-name">舆情危机</div><div class="dc-desc">社交媒体/媒体介入</div></div>
+    <div class="dept-card" style="border-top:4px solid #1a1a2e"><div class="dc-icon">🏛️</div><div class="dc-name">监管/法律</div><div class="dc-desc">监管调查/法律函件</div></div>
+  </div>
+  <div class="content-block"><h3>😤 愤怒客户 — LEAP法则</h3><div class="step-cards" style="margin-top:12px"><div class="step-card"><div class="sc-title">L — Listen 倾听</div><div class="sc-desc">不打断，让客户发泄完情绪。说："请您慢慢说，我在听。"</div></div><div class="step-card"><div class="sc-title">E — Empathize 共情</div><div class="sc-desc">认可客户感受。说："我完全理解您的心情，换作是我也会很生气。"</div></div><div class="step-card"><div class="sc-title">A — Apologize 道歉</div><div class="sc-desc">真诚道歉。说："非常抱歉给您带来这样的体验。"</div></div><div class="step-card"><div class="sc-title">P — Propose 提议</div><div class="sc-desc">给出解决方案。说："我目前可以为您做的是[方案A]或[方案B]。"</div></div></div><div class="callout callout-danger" style="margin-top:12px">🔴 禁止：不得争吵 | 不得说"这是公司规定" | 不得挂断（人身威胁除外）| 不得承诺超权限补偿</div></div>
+  <div class="content-block"><h3>😰 恐慌客户话术</h3><div style="background:#1a1a2e;color:#e5e7eb;border-radius:8px;padding:16px;font-family:monospace;font-size:12.5px;line-height:1.8;white-space:pre-wrap;margin-top:10px">【安抚】"我理解市场波动让您很不安，这是正常的情绪反应。"
+
+【客观呈现】"目前平台运行正常，资金安全有保障。充提币功能正常开放。"
+
+【避免】❌ 不说"会涨回来的"（投资建议）❌ 不说"不用担心"（轻视情绪）
+
+【引导】"您的资产在平台上是安全的。如果您有操作需求，我可以指导您完成。"</div></div>
+  <div class="content-block" style="margin-top:16px"><h3>🗣️ 威胁客户处理</h3><div class="step-cards"><div class="step-card warn"><div class="sc-title">媒体威胁</div><div class="sc-desc">"我理解您想通过其他渠道解决问题。让我先确认一下，我目前能为您提供的方案是[方案]。如果您仍然不满意，我可以帮您升级到主管处理。"</div></div><div class="step-card danger"><div class="sc-title">法律威胁</div><div class="sc-desc">"我尊重您寻求法律途径的权利。同时，我仍然会尽力在当前渠道帮助您解决问题。这是我们法务部的联系方式[转交法务]。"</div></div><div class="step-card warn"><div class="sc-title">监管举报威胁</div><div class="sc-desc">"您当然有权利向监管机构反映情况。在此期间，我仍会按流程为您处理问题。"</div></div></div><div class="callout callout-danger">🔴 威胁类客户必须即时上报主管。不要因恐惧而做出超权限承诺！</div></div>
+  <div class="content-block" style="margin-top:16px"><h3>📰 舆情危机应对</h3><ul><li>发现社交媒体负面信息→截图保存→即时上报PR部+主管</li><li>不要在社交媒体上回应或解释</li><li>不要向客户确认或否认社交媒体上的信息</li><li>统一口径由PR部发布</li></ul></div>
+</div>
+
+<!-- ===== Cross Department ===== -->
+<div class="view" id="view-cross-dept">
+  <div class="page-header"><h1>跨部门沟通协作</h1></div>
+  <div class="dept-grid">
+    <div class="dept-card" onclick="toggleDept('dept-tech')"><div class="dc-icon">🔧</div><div class="dc-name">技术部</div><div class="dc-desc">系统故障 · 链上问题</div></div>
+    <div class="dept-card" onclick="toggleDept('dept-compliance')"><div class="dc-icon">⚖️</div><div class="dc-name">合规部</div><div class="dc-desc">KYC争议 · AML</div></div>
+    <div class="dept-card" onclick="toggleDept('dept-biz')"><div class="dc-icon">💼</div><div class="dc-name">商务部</div><div class="dc-desc">VIP客户 · 返佣</div></div>
+    <div class="dept-card" onclick="toggleDept('dept-ops')"><div class="dc-icon">📢</div><div class="dc-name">运营部</div><div class="dc-desc">活动规则 · 公告</div></div>
+    <div class="dept-card" onclick="toggleDept('dept-finance')"><div class="dc-icon">💰</div><div class="dc-name">财务部</div><div class="dc-desc">退款 · 补偿审批</div></div>
+    <div class="dept-card" onclick="toggleDept('dept-pr')"><div class="dc-icon">📰</div><div class="dc-name">PR部</div><div class="dc-desc">媒体 · 舆情</div></div>
+    <div class="dept-card" onclick="toggleDept('dept-legal')"><div class="dc-icon">🏛️</div><div class="dc-name">法务部</div><div class="dc-desc">法律威胁 · 监管</div></div>
+    <div class="dept-card" onclick="toggleDept('dept-security')"><div class="dc-icon">🛡️</div><div class="dc-name">安全部</div><div class="dc-desc">被盗 · 风控</div></div>
+  </div>
+  <div class="dept-detail" id="dept-tech"><div class="dd-header"><span class="dd-icon">🔧</span><span class="dd-title">技术部</span></div><div class="dd-body"><div class="dd-section"><h4>📋 职责范围</h4><p>系统故障排查、链上问题处理、数据修复、API异常</p></div><div class="dd-section"><h4>🎯 对接场景</h4><ul><li>充提币异常</li><li>交易故障</li><li>数据不一致</li><li>系统Bug</li></ul></div><div class="dd-section"><h4>📞 联系方式</h4><div class="dd-contact"><div class="dd-contact-item"><div class="label">工单系统</div><div class="value">技术工单</div></div><div class="dd-contact-item"><div class="label">紧急群</div><div class="value">Tech-Emergency</div></div><div class="dd-contact-item"><div class="label">on-call</div><div class="value">紧急电话</div></div></div></div><div class="dd-section"><h4>⏱ 响应时效</h4><p>紧急15min / 一般4h / 低优24h</p></div><div class="dd-section"><h4>📌 沟通规范</h4><p>需提供：UID + 问题描述 + 复现步骤 + 截图</p></div><div class="callout callout-danger" style="margin-top:8px">🔴 不直接找开发个人 / 不在非紧急时打电话</div></div></div>
+  <div class="dept-detail" id="dept-compliance"><div class="dd-header"><span class="dd-icon">⚖️</span><span class="dd-title">合规部</span></div><div class="dd-body"><div class="dd-section"><h4>📋 职责范围</h4><p>KYC审核争议、AML相关、可疑交易上报、监管配合</p></div><div class="dd-section"><h4>🎯 对接场景</h4><ul><li>KYC拒绝申诉</li><li>可疑账户</li><li>制裁名单命中</li><li>司法协助</li></ul></div><div class="dd-section"><h4>📞 联系方式</h4><div class="dd-contact"><div class="dd-contact-item"><div class="label">合规工单</div><div class="value">Compliance</div></div><div class="dd-contact-item"><div class="label">合规邮箱</div><div class="value">compliance@</div></div></div></div><div class="dd-section"><h4>⏱ 响应时效</h4><p>合规咨询24h / 紧急合规4h</p></div><div class="callout callout-danger" style="margin-top:8px">🔴 必须书面留痕 / 不口头讨论合规细节 / 不向客户透露合规判断逻辑</div></div></div>
+  <div class="dept-detail" id="dept-security"><div class="dd-header"><span class="dd-icon">🛡️</span><span class="dd-title">安全部</span></div><div class="dd-body"><div class="dd-section"><h4>📋 职责范围</h4><p>账户安全、风控系统、入侵检测、安全审计</p></div><div class="dd-section"><h4>🎯 对接场景</h4><ul><li>账户被盗</li><li>异常登录</li><li>安全事件</li><li>风控误判</li></ul></div><div class="dd-section"><h4>⏱ 响应时效</h4><p>安全事件即时 / 风控查询4h</p></div><div class="callout callout-danger" style="margin-top:8px">🔴 不透露安全机制细节 / 不讨论风控规则</div></div></div>
+  <div class="exception-table" style="margin-top:16px"><h3>常见跨部门场景速查</h3><table class="exc-table"><thead><tr><th>客户问题</th><th>涉及部门</th><th>客服先行操作</th></tr></thead><tbody><tr><td>充币24h未到账</td><td>技术+财务</td><td>收集TxHash+确认数</td></tr><tr><td>KYC被拒要申诉</td><td>合规</td><td>收集客户补充材料</td></tr><tr><td>VIP客户要求特殊费率</td><td>商务</td><td>记录客户诉求转交</td></tr><tr><td><span class="tag-sm tag-red">紧急</span> 威胁联系媒体</td><td>PR+法务</td><td>安抚+记录+即时上报</td></tr><tr><td><span class="tag-sm tag-red">紧急</span> 疑似账户被盗</td><td>安全</td><td>冻结账户+改密引导</td></tr><tr><td>活动奖励未到账</td><td>运营+财务</td><td>确认活动规则+参与记录</td></tr></tbody></table></div>
+</div>
+
+</div><!-- end content -->
+</div><!-- end main -->
+</div><!-- end app -->
+
+<script>
+function navigateTo(viewId){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const target=document.getElementById('view-'+viewId);
+  if(target)target.classList.add('active');
+  const navItem=document.querySelector(`.nav-item[data-view="${viewId}"]`);
+  if(navItem)navItem.classList.add('active');
+  const names={'dashboard':'总览','kb-crypto':'知识库 > 加密货币基础知识','kb-exchange':'知识库 > 交易所业务知识','kb-compliance':'知识库 > 合规与安全知识','flow-deposit':'流程中心 > 充提币流程','flow-kyc':'流程中心 > KYC审核流程','flow-complaint':'流程中心 > 投诉与升级流程','flow-exception':'流程中心 > 异常处理流程','script-faq':'话术模板 > 常见问题话术库','script-emotion':'话术模板 > 情绪与危机话术','cross-dept':'跨部门沟通协作'};
+  const bc=document.getElementById('breadcrumb');
+  const parts=(names[viewId]||viewId).split(' > ');
+  bc.innerHTML=parts.map((p,i)=>i<parts.length-1?`<span>${p}</span><span class="sep">›</span>`:`<span class="current">${p}</span>`).join('');
+  document.querySelector('.content').scrollTop=0;
+}
+document.querySelectorAll('.nav-item[data-view]').forEach(item=>{item.addEventListener('click',()=>navigateTo(item.dataset.view));});
+function toggleGroup(el){el.parentElement.classList.toggle('collapsed');}
+function toggleChGroup(el){el.parentElement.classList.toggle('collapsed');}
+function selectChapter(el){if(typeof el==='string')return;el.closest('.chapter-nav').querySelectorAll('.ch-item').forEach(i=>i.classList.remove('active'));el.classList.add('active');}
+function switchTab(tabGroupId,contentId,tab){tab.parentElement.querySelectorAll('.flow-tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');}
+function toggleScriptDetail(card){const detail=card.querySelector('.script-detail');if(detail){detail.classList.toggle('show');const btn=card.querySelector('.btn-expand');if(btn)btn.textContent=detail.classList.contains('show')?'收起 ▲':'展开全文 ▼';}}
+function copyText(btn){const card=btn.closest('.script-card');const preview=card.querySelector('.sc-preview');navigator.clipboard.writeText(preview.textContent).then(()=>{const orig=btn.textContent;btn.textContent='已复制 ✓';setTimeout(()=>btn.textContent=orig,1500);});}
+function copyScript(btn){const script=btn.closest('.sd-script');const text=script.textContent.replace('复制','').trim();navigator.clipboard.writeText(text).then(()=>{const orig=btn.textContent;btn.textContent='已复制 ✓';setTimeout(()=>btn.textContent=orig,1500);});}
+function toggleDept(id){const el=document.getElementById(id);if(el){el.classList.toggle('show');if(el.classList.contains('show'))el.scrollIntoView({behavior:'smooth',block:'nearest'});}}
+</script>
+</body>
+</html>
