@@ -2,27 +2,43 @@ import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 
 export default function Login() {
+  const [mode, setMode] = useState("signin"); // "signin" | "signup"
   const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [sending, setSending] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [confirmNotice, setConfirmNotice] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError(null);
-    setSending(true);
-    const { error } = await supabase.auth.signInWithOtp({
-      email: email.trim(),
-      options: {
-        emailRedirectTo: window.location.origin,
-        shouldCreateUser: true,
-      },
-    });
-    setSending(false);
-    if (error) {
-      setError(error.message);
+    setSubmitting(true);
+
+    if (mode === "signup") {
+      const { data, error } = await supabase.auth.signUp({
+        email: email.trim(),
+        password,
+      });
+      setSubmitting(false);
+      if (error) {
+        setError(error.message);
+        return;
+      }
+      // If your Supabase project has "Confirm email" turned on, there's no
+      // session yet until the user verifies — let them know instead of
+      // silently doing nothing.
+      if (data.user && !data.session) {
+        setConfirmNotice(true);
+      }
+      // If "Confirm email" is off, data.session is already set and the
+      // onAuthStateChange listener in App.jsx will pick it up automatically.
     } else {
-      setSent(true);
+      const { error } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
+      setSubmitting(false);
+      if (error) setError(error.message);
     }
   }
 
@@ -60,11 +76,11 @@ export default function Login() {
         >
           Mood Log
         </h1>
-        <p style={{ margin: "0 0 28px", fontSize: "14px", color: "#8B8579" }}>
-          Sign in with your email — no password needed.
+        <p style={{ margin: "0 0 24px", fontSize: "14px", color: "#8B8579" }}>
+          {mode === "signin" ? "Sign in to your account." : "Create an account."}
         </p>
 
-        {sent ? (
+        {confirmNotice ? (
           <div
             style={{
               background: "#F0F6EC",
@@ -76,10 +92,14 @@ export default function Login() {
               lineHeight: 1.5,
             }}
           >
-            Check <strong>{email}</strong> for a sign-in link. It expires in
-            about an hour and can only be used once.
+            Account created. This project currently requires confirming your
+            email before signing in — check <strong>{email}</strong> for a
+            confirmation link.
             <button
-              onClick={() => setSent(false)}
+              onClick={() => {
+                setConfirmNotice(false);
+                setMode("signin");
+              }}
               style={{
                 display: "block",
                 marginTop: "12px",
@@ -92,7 +112,7 @@ export default function Login() {
                 padding: 0,
               }}
             >
-              Use a different email
+              Back to sign in
             </button>
           </div>
         ) : (
@@ -113,13 +133,33 @@ export default function Login() {
                 fontFamily: "inherit",
                 color: "#2B2A33",
                 background: "#FBFAF8",
+                marginBottom: "10px",
+                boxSizing: "border-box",
+              }}
+            />
+            <input
+              type="password"
+              required
+              minLength={6}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder={mode === "signup" ? "Create a password (6+ characters)" : "Password"}
+              style={{
+                width: "100%",
+                border: "1px solid #E5E1D8",
+                borderRadius: "10px",
+                padding: "12px 14px",
+                fontSize: "14px",
+                fontFamily: "inherit",
+                color: "#2B2A33",
+                background: "#FBFAF8",
                 marginBottom: "14px",
                 boxSizing: "border-box",
               }}
             />
             <button
               type="submit"
-              disabled={sending || !email}
+              disabled={submitting || !email || !password}
               style={{
                 width: "100%",
                 background: "#8B7FD1",
@@ -129,17 +169,53 @@ export default function Login() {
                 padding: "12px",
                 fontSize: "14px",
                 fontWeight: 600,
-                cursor: sending ? "default" : "pointer",
-                opacity: sending || !email ? 0.6 : 1,
+                cursor: submitting ? "default" : "pointer",
+                opacity: submitting || !email || !password ? 0.6 : 1,
               }}
             >
-              {sending ? "Sending…" : "Send sign-in link"}
+              {submitting
+                ? mode === "signup"
+                  ? "Creating account…"
+                  : "Signing in…"
+                : mode === "signup"
+                ? "Create account"
+                : "Sign in"}
             </button>
             {error && (
-              <p style={{ color: "#E0735F", fontSize: "13px", marginTop: "12px" }}>
-                {error}
-              </p>
+              <p style={{ color: "#E0735F", fontSize: "13px", marginTop: "12px" }}>{error}</p>
             )}
+
+            <p style={{ marginTop: "20px", fontSize: "13px", color: "#8B8579", textAlign: "center" }}>
+              {mode === "signin" ? (
+                <>
+                  Don't have an account?{" "}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMode("signup");
+                      setError(null);
+                    }}
+                    style={{ background: "none", border: "none", color: "#8B7FD1", fontWeight: 600, cursor: "pointer", padding: 0, fontSize: "13px" }}
+                  >
+                    Create one
+                  </button>
+                </>
+              ) : (
+                <>
+                  Already have an account?{" "}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMode("signin");
+                      setError(null);
+                    }}
+                    style={{ background: "none", border: "none", color: "#8B7FD1", fontWeight: 600, cursor: "pointer", padding: 0, fontSize: "13px" }}
+                  >
+                    Sign in
+                  </button>
+                </>
+              )}
+            </p>
           </form>
         )}
       </div>
